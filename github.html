@@ -93,68 +93,219 @@
         </p>
         <p>To make a new branch, type the following:<br>
             <code>git branch &lt;branch-name&gt;</code>
-          <br>To switch between branches, type the following (quotation marks are not necessary around the branch name):
-          <br>
-          <code>git checkout &lt;branch-name&gt;</code><br>
-          Keep in mind that <code>git branch</code> does NOT check you out to your new branch. To switch into your new branch, you must follow with <code>git checkout &lt;branch-name&gt;</code> . However, there is a shortcut that combines the two commands: 
-          <br> <code> git checkout -b &lt;branch-name&gt;</code>
-            
-        </p>
-    <h2>Set Up Tracking Branches</h2>
-    <p>Read the following section for what tracking means! <br>
+            <br>To switch between branches, type the following (quotation marks are not necessary around the branch
+            name):
+            <br>
+            <code>git checkout &lt;branch-name&gt;</code><br>
+            Keep in mind that <code>git branch</code> does NOT check you out to your new branch. To switch into your new
+            branch, you must follow with <code>git checkout &lt;branch-name&gt;</code> . However, there is a shortcut
+            that combines the two commands:
+            <br> <code> git checkout -b &lt;branch-name&gt;</code>
 
-        Once you have made a new branch, push it to the remote GitHub repository. It’s the same process as pushing changes to GitHub (described above). 
-        HOWEVER, simply pushing the new branch to the remote repository does NOT automatically set up a tracking branch between your local and remote branches.
-        To set up your local branch to track the remote branch, run the following command with the remote as origin
-       <br><code> git branch -u &lt;remote/branch-name&gt;</code>
-    </p>
-    <p>
-        <br>Or, you can set up the tracking branch right after creating it by pushing it with the following command: 
-        <br><code>git push -u origin &lt;branch-name&gt;</code>
-    </p>
-    <p>
-        <br>To check which local branches are tracking remote branches (if any at all), run the following command. It will also provide information about how many commits ahead or behind your local branch are compared to the remote branch.
-        <br><code>git branch -vv</code>
-    </p> <p>
-        The branches that appear on GitHub (remote repository) may not all be on your local version of the code (on your computer). To check all existing branches in the remote repository (on GitHub), use the following command: 
-        <br><code>git branch -a</code>
-    </p><p>
-        To edit (checkout) to a branch that exists in the remote repository but not your local repository, run:
-        <br><code>git checkout &lt;branch-name&gt;</code>
-        <br>This will automatically track your local branch to your remote branch. 
         </p>
-    <h2>Concepts in Context</h2>
-    <p>To edit an existing remote branch on your own local repository, first checkout to your desired branch then run the command <code>git pull</code>. For example, if the intake subsystem exists in the remote repository but not your local repository, you would run the following commands:
-        <br><code>git pull <br> git branch -a <comment>// see all existing branches in the remote repository</comment> <br> git checkout intake <comment>// checks out to the intake branch</comment>
+        <h2>Set Up Tracking Branches</h2>
+        <p>Read the following section for what tracking means! <br>
+
+            Once you have made a new branch, push it to the remote GitHub repository. It’s the same process as pushing
+            changes to GitHub (described above).
+            HOWEVER, simply pushing the new branch to the remote repository does NOT automatically set up a tracking
+            branch between your local and remote branches.
+            To set up your local branch to track the remote branch, run the following command with the remote as origin
+            <br><code> git branch -u &lt;remote/branch-name&gt;</code>
+        </p>
+        <p>
+            <br>Or, you can set up the tracking branch right after creating it by pushing it with the following command:
+            <br><code>git push -u origin &lt;branch-name&gt;</code>
+        </p>
+        <p>
+            <br>To check which local branches are tracking remote branches (if any at all), run the following command.
+            It will also provide information about how many commits ahead or behind your local branch are compared to
+            the remote branch.
+            <br><code>git branch -vv</code>
+        </p>
+        <p>
+            The branches that appear on GitHub (remote repository) may not all be on your local version of the code (on
+            your computer). To check all existing branches in the remote repository (on GitHub), use the following
+            command:
+            <br><code>git branch -a</code>
+        </p>
+        <p>
+            To edit (checkout) to a branch that exists in the remote repository but not your local repository, run:
+            <br><code>git checkout &lt;branch-name&gt;</code>
+            <br>This will automatically track your local branch to your remote branch.
+        </p>
+        <h2>Concepts in Context</h2>
+        <p>To edit an existing remote branch on your own local repository, first checkout to your desired branch then
+            run the command <code>git pull</code>. For example, if the intake subsystem exists in the remote repository
+            but not your local repository, you would run the following commands:
+            <br><code>git pull <br> git branch -a <comment>// see all existing branches in the remote repository</comment> <br> git checkout intake <comment>// checks out to the intake branch</comment>
         </code>
-    </p>
-    <p>Why do we make a branch for each subsystem?</p>
-    <ul class = "outer-list">
-        <li>When we test mechanisms, we usually test each mechanism individually. By having only one subsystem on a branch, you can just test the subsystem on the branch and eliminate possible areas of error (ex. code from other subsystems that may be interfering with testing).</li>
-        <li>When we run the robot during competition, we combine all the branches into one final branch or project that is run during comps. This final branch should have all the subsystems, one Main.java, Robot.java, RobotContainer.java, Ports.java, and Constants.java.
+        </p>
+        <p>Why do we make a branch for each subsystem?</p>
+        <ul class="outer-list">
+            <li>When we test mechanisms, we usually test each mechanism individually. By having only one subsystem on a
+                branch, you can just test the subsystem on the branch and eliminate possible areas of error (ex. code
+                from other subsystems that may be interfering with testing).</li>
+            <li>When we run the robot during competition, we combine all the branches into one final branch or project
+                that is run during comps. This final branch should have all the subsystems, one Main.java, Robot.java,
+                RobotContainer.java, Ports.java, and Constants.java.
             </li>
-    </ul>
-    <h2>Github Branching: Merging Branches</h2>
-    <p>Merging branches is an essential part of code collaboration. </p>
-    <p><b>Managing Merge Conflicts</b></p>
-    <p>In VS Code:</p>
-    <ul class = "outer-list">
-        <li>Resolve in Merge Editor will show up in bottom right corner</li>
-        <li>Choose which code you want to keep (either Incoming or Current). A new tab on the bottom will show the version you want to keep.
-        </li>
-    </ul>
-    <p>In Github</p>
-    <ul>
-        <li>After approval for the Pull Request, select Resolve Conflicts</li>
-        <li>Will bring you to the GitHub code editor. Sections that require attention will have their line numbers highlighted</li>
-        <li>After changes are made, Mark as Resolved in the top right corner will light up</li>
-        <li>After all files are marked as resolved, merging can happen</li>
-        <li>Make sure that file has no errors by visiting other files (via VS Code)</li>
-    </ul>
-    <h2>Resolving Github Errors</h2>
-    <p>Given the annoyingness of GitHub, you’re likely to encounter errors. The best way to resolve an error you’re unsure of is to Google it! 
-    <br>If you cloned your repository wrong, delete the local version on your computer and reclone it from the remote repository online. </p>
-    <h2>Useful Git Commands and Silly Stuff</h2>
+        </ul>
+        <h2>Github Branching: Merging Branches</h2>
+        <p>Merging branches is an essential part of code collaboration. </p>
+        <p><b>Managing Merge Conflicts</b></p>
+        <p>In VS Code:</p>
+        <ul class="outer-list">
+            <li>Resolve in Merge Editor will show up in bottom right corner</li>
+            <li>Choose which code you want to keep (either Incoming or Current). A new tab on the bottom will show the
+                version you want to keep.
+            </li>
+        </ul>
+        <p>In Github:</p>
+        <ul class="outer-list">
+            <li>After approval for the Pull Request, select Resolve Conflicts</li>
+            <li>Will bring you to the GitHub code editor. Sections that require attention will have their line numbers
+                highlighted</li>
+            <li>After changes are made, Mark as Resolved in the top right corner will light up</li>
+            <li>After all files are marked as resolved, merging can happen</li>
+            <li>Make sure that file has no errors by visiting other files (via VS Code)</li>
+        </ul>
+        <h2>Resolving Github Errors</h2>
+        <p>Given the annoyingness of GitHub, you’re likely to encounter errors. The best way to resolve an error you’re
+            unsure of is to Google it!
+            <br>If you cloned your repository wrong, delete the local version on your computer and reclone it from the
+            remote repository online.
+        </p>
+        <h2>Useful Git Commands and Silly Stuff</h2>
+        <ul class="outer-list">
+            <li><code>git clone &lt;repository-url&gt;</code>
+                <ul style="list-style-type:circle;" class="inner-list">
+                    <li> Downloads the latest version of a remote project onto your local computer</li>
+                    <li>Make sure the repository url ends in “.git”</li>
+                </ul>
+            </li>
+            <li><code>git fetch</code>
+                <ul style="list-style-type:circle;" class="inner-list">
+                    <li>Gets all the updates from the remote repository including new branches</li>
+                </ul>
+            </li>
+            <li><code>git checkout &lt;branch-name&gt;</code>
+                <ul style="list-style-type:circle;" class="inner-list">
+                    <li>Switches the branch you are currently on</li>
+                </ul>
+            </li>
+            <li><code>git checkout-b &lt;branch-name&gt;</code>
+                <ul style="list-style-type:circle;" class="inner-list">
+                    <li>Creates a new branch and switches to it</li>
+                </ul>
+            </li>
+            <li><code>git commit -m “[commit message]”</code>
+                <ul style="list-style-type:circle;" class="inner-list">
+                    <li>Saves changes made on the local computer</li>
+                </ul>
+            </li>
+
+            <li><code>git push</code>
+                <ul style="list-style-type:circle;" class="inner-list">
+                    <li> If the branch is already remotely tracked, the command will push committed local changes to the
+                        remote branch.</li>
+                </ul>
+            </li>
+            <li><code>git push --set-upstream &lt;remote-branch&gt; branch-name</code>
+                <ul style="list-style-type:circle;" class="inner-list">
+                    <li>If a branch is not yet tracked and only resides on the local machine, run this command.</li>
+                </ul>
+            </li>
+
+            <li><code>git pull</code>
+                <ul style="list-style-type:circle;" class="inner-list">
+                    <li>Fetch all changes from the remote repository and merge any remote changes into the current local
+                        branch</li>
+                </ul>
+            </li>
+
+            <li><code>git add &lt;file-path&gt;</code>
+                <ul style="list-style-type:circle;" class="inner-list">
+                    <li>Stages changed file(s)</li>
+                    <li>Add files before committing them</li>
+                </ul>
+            </li>
+
+            <li><code>git add -A</code>
+                <ul style="list-style-type:circle;" class="inner-list">
+                    <li>Adds all new and changed files to the staging area</li>
+                </ul>
+            </li>
+
+            <li><code>git branch &lt;new-branch&gt;</code>
+                <ul style="list-style-type:circle;" class="inner-list">
+                    <li> Creates a new branch</li>
+                    <li>This does NOT also switch you to the new branch</li>
+                </ul>
+            </li>
+
+            <li><code>git branch -d &lt;branch-name&gt;</code>
+                <ul style="list-style-type:circle;" class="inner-list">
+                    <li> Deletes the branch</li>
+                </ul>
+            </li>
+
+            <li><code>git status</code>
+                <ul style="list-style-type:circle;" class="inner-list">
+                    <li>Checks the status of the branch you are currently on (a.k.a. any changes that haven’t been
+                        committed yet)</li>
+                </ul>
+            </li>
+
+            <li><code>git reset --hard &lt;HEAD&gt; (or &lt;commit code&gt;) </code>
+                <ul style="list-style-type:circle;" class="inner-list">
+                    <li>Resets the current branch to the most recent commit on GitHub (or a specific commit)</li>
+                </ul>
+            </li>
+
+            <li><code>git rm -r &lt;file-name&gt;</code>
+                <ul style="list-style-type:circle;" class="inner-list">
+                    <li>Removes a file</li>
+                </ul>
+            </li>
+
+            <li><code>git branch</code>
+                <ul style="list-style-type:circle;" class="inner-list">
+                    <li>Lists the branches on the local computer</li>
+                    <li>The asterisk denotes the current branch</li>
+                </ul>
+            </li>
+
+            <li><code>git branch -a</code>
+                <ul style="list-style-type:circle;" class="inner-list">
+                    <li>Lists all branches (on both local and remote repository)</li>
+                </ul>
+            </li>
+            <li><code>git merge &lt;branch-name&gt;</code>
+                <ul style="list-style-type:circle;" class="inner-list">
+                    <li>Merges a branch into the current branch</li>
+                </ul>
+            </li>
+
+            <li><code>git merge &lt;source-branch&gt; &lt;target-branch&gt;</code>
+                <ul style="list-style-type:circle;" class="inner-list">
+                    <li>Merges the source branch into the target branch</li>
+                </ul>
+            </li>
+            <li><code>git stash</code>
+                <ul style="list-style-type:circle;" class="inner-list">
+                    <li>Stashes changes in a working directory</li>
+                    <li>Reverts to a previous save point (previous commit point)</li>
+                </ul>
+            </li>
+
+            <li><code>git stash clear</code>
+                <ul style="list-style-type:circle;" class="inner-list">
+                    <li>Remove all stashed entries</li>
+                </ul>
+            </li>
+        </ul>
+        <p>There's also this cool thing called the commit tree. You can see where things got merged, who wrote what, and the timeline of what you worked on!</p>
     </div>
 </body>
 

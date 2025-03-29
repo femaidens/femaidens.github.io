@@ -63,7 +63,7 @@ header {
 .main-content p {
     font-size: 16px;
     line-height: 1.6;
-    color: #555;
+    color: #000000;
 }
 .inner-list{
     margin-left: 60px;
@@ -86,6 +86,11 @@ comment{
     background-color: #f1f1f1;
     padding: 2px;
     font-size: 105%;
+}
+notice{
+    font-size: 16px;
+    line-height: 1.6;
+    color: #f50e0e;
 }
 /* Footer styling */
 footer {
