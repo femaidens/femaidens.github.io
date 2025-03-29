@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="page-style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Github</title>
+</head>
+
+
+<body>
+    <div class="main-content">
+        <header>
+
+            <h2>Github Documentation</h2>
+        </header>
+        <div class="sidebar">
+            <a href="#home">Introduction</a>
+            <a href="#todobuildseason">Things To Do At the Start Of Build Season</a>
+            <a href="#bestcodepractices.html">Best Code Practices</a>
+            <a href="#github.html">GitHub</a>
+            <a href="#apis.html">APIs</a>
+            <a href="#driverstation.html">Driver Station</a>
+            <a href="#limelightpipeline.html">Limelight & Pipeline</a>
+            <a href="#github">GitHub</a>
+            <a href="#github">Sensors</a>
+            <a href="#github">Radio Configuration</a>
+            <a href="#github">Photonvision</a>
+            <a href="#github">REV</a>
+            <a href="#github">SysID</a>
+            <a href="#github">AdvantageScope</a>
+            <a href="#github">Pathplanner</a>
+            <a href="#github">Logging</a>
+            <a href="#github">Simulations</a>
+            <a href="#github">SmartDashBoard</a>
+        </div>
+
+        <a href="https://docs.github.com/en">https://docs.github.com/en</a>
+        <h2>Configuring GitHub username and email (not required)</h2>
+        <p>You can set the GitHub username and email so that when you push to GitHub,
+            your account is displayed as the account making changes to the repository.</p>
+        <p>FOR WINDOWS USERS</p>
+        <ul class="outer-list">
+            <li>Setting and resetting the GitHub username and email is done in the exact same way.
+                <ol type="1" class="inner-list">
+                    <li>Open Git Bash.</li>
+                    <li>Type:
+                        <ol type="a" class="inner-list">
+                            <li>git config --global user.name “[enter your name here]”</li>
+                            <li>git config --global user.email “[enter your email here]”</li>
+                        </ol>
+                    </li>
+                </ol>
+            </li>
+            <li>For example:</li>
+            <ol type="1" class="inner-list">
+                <li>git config --global user.name “Jillian Chong”</li>
+                <li>git config --global user.email “chongj@bxscience.edu”
+                </li>
+            </ol>
+        </ul>
+        <p>FOR MACOS USERS</p>
+        <ol type="1" class="outer-list">
+            <li>Open a new bash terminal window in VSCode</li>
+            <ul class="inner-list">
+                <li>If the name of the window doesn’t immediately read “bash”, select the drop down menu next to the
+                    plus sign and select bash
+                </li>
+
+            </ul>
+            <li>Follow Step 2 from above.</li>
+        </ol>
+        <h2>Pushing Changes to Github</h2>
+        <code>git status<br>git add -A <comment>// -A flag adds ALL modified files to staging area*</comment>
+        <br>git commit -m "enter message here" <br>git push origin &lt;branch&gt; </code>
+        <p><b>Staging area:</b> the area before the code is pushed to GitHub; you can add all modified files or just
+            specific files.
+        </p>
+        <ul class="outer-list">
+            <li><code>git add Drivetrain.java </code> → adds just the Drivetrain file.</li>
+        </ul>
+        <h2>Pulling Changes from Github</h2>
+        <p>Pulling changes from GitHub updates your local repository with the changes pushed in the remote repository.
+            To pull changes from GitHub, type: <br><code>git pull origin &lt;branch&gt;
+     </code></p>
+        <h2>Github Branching: Make a New Branch</h2>
+        <p>When working on the robotics repository, we make a branch for each mechanism (including drivetrain). The main
+            branch (formerly called the master branch) is the default branch on GitHub. It should just contain
+            Main.java, Robot.java, Ports.java, Constants.java, and RobotContainer.java. Files in the main branch should
+            be empty (except for code that all other branches share) until other branches are merged into main.
+        </p>
+        <p>To make a new branch, type the following:<br>
+            <code>git branch &lt;branch-name&gt;</code>
+          <br>To switch between branches, type the following (quotation marks are not necessary around the branch name):
+          <br>
+          <code>git checkout &lt;branch-name&gt;</code><br>
+          Keep in mind that <code>git branch</code> does NOT check you out to your new branch. To switch into your new branch, you must follow with <code>git checkout &lt;branch-name&gt;</code> . However, there is a shortcut that combines the two commands: 
+          <br> <code> git checkout -b &lt;branch-name&gt;</code>
+            
+        </p>
+    <h2>Set Up Tracking Branches</h2>
+    <p>Read the following section for what tracking means! <br>
+
+        Once you have made a new branch, push it to the remote GitHub repository. It’s the same process as pushing changes to GitHub (described above). 
+        HOWEVER, simply pushing the new branch to the remote repository does NOT automatically set up a tracking branch between your local and remote branches.
+        To set up your local branch to track the remote branch, run the following command with the remote as origin
+       <br><code> git branch -u &lt;remote/branch-name&gt;</code>
+    </p>
+    <p>
+        <br>Or, you can set up the tracking branch right after creating it by pushing it with the following command: 
+        <br><code>git push -u origin &lt;branch-name&gt;</code>
+    </p>
+    <p>
+        <br>To check which local branches are tracking remote branches (if any at all), run the following command. It will also provide information about how many commits ahead or behind your local branch are compared to the remote branch.
+        <br><code>git branch -vv</code>
+    </p> <p>
+        The branches that appear on GitHub (remote repository) may not all be on your local version of the code (on your computer). To check all existing branches in the remote repository (on GitHub), use the following command: 
+        <br><code>git branch -a</code>
+    </p><p>
+        To edit (checkout) to a branch that exists in the remote repository but not your local repository, run:
+        <br><code>git checkout &lt;branch-name&gt;</code>
+        <br>This will automatically track your local branch to your remote branch. 
+        </p>
+    <h2>Concepts in Context</h2>
+    <p>To edit an existing remote branch on your own local repository, first checkout to your desired branch then run the command <code>git pull</code>. For example, if the intake subsystem exists in the remote repository but not your local repository, you would run the following commands:
+        <br><code>git pull <br> git branch -a <comment>// see all existing branches in the remote repository</comment> <br> git checkout intake <comment>// checks out to the intake branch</comment>
+        </code>
+    </p>
+    <p>Why do we make a branch for each subsystem?</p>
+    <ul class = "outer-list">
+        <li>When we test mechanisms, we usually test each mechanism individually. By having only one subsystem on a branch, you can just test the subsystem on the branch and eliminate possible areas of error (ex. code from other subsystems that may be interfering with testing).</li>
+        <li>When we run the robot during competition, we combine all the branches into one final branch or project that is run during comps. This final branch should have all the subsystems, one Main.java, Robot.java, RobotContainer.java, Ports.java, and Constants.java.
+            </li>
+    </ul>
+    <h2>Github Branching: Merging Branches</h2>
+    <p>Merging branches is an essential part of code collaboration. </p>
+    <p><b>Managing Merge Conflicts</b></p>
+    <p>In VS Code:</p>
+    <ul class = "outer-list">
+        <li>Resolve in Merge Editor will show up in bottom right corner</li>
+        <li>Choose which code you want to keep (either Incoming or Current). A new tab on the bottom will show the version you want to keep.
+        </li>
+    </ul>
+    <p>In Github</p>
+    <ul>
+        <li>After approval for the Pull Request, select Resolve Conflicts</li>
+        <li>Will bring you to the GitHub code editor. Sections that require attention will have their line numbers highlighted</li>
+        <li>After changes are made, Mark as Resolved in the top right corner will light up</li>
+        <li>After all files are marked as resolved, merging can happen</li>
+        <li>Make sure that file has no errors by visiting other files (via VS Code)</li>
+    </ul>
+    <h2>Resolving Github Errors</h2>
+    <p>Given the annoyingness of GitHub, you’re likely to encounter errors. The best way to resolve an error you’re unsure of is to Google it! 
+    <br>If you cloned your repository wrong, delete the local version on your computer and reclone it from the remote repository online. </p>
+    <h2>Useful Git Commands and Silly Stuff</h2>
+    </div>
+</body>
+
+</html>
