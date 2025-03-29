@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="page-style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Visual Studio Code</title>
+</head>
+
+
+<body>
+    <div class="main-content">
+        <header>
+            <h2>Visual Studio Code</h2>
+        </header>
+        <div class="sidebar">
+            <a href="index.html">Introduction</a>
+            <a href="#todobuildseason">Things To Do At the Start Of Build Season</a>
+            <a href="#bestcodepractices.html">Best Code Practices</a>
+            <a href="github.html">GitHub</a>
+            <a href="apis.html">APIs</a>
+            <a href="driverstation.html">Driver Station</a>
+            <a href="limelightpipeline.html">Limelight & Pipeline</a>
+            <a href="#github">GitHub</a>
+            <a href="#github">Sensors</a>
+            <a href="#github">Radio Configuration</a>
+            <a href="#github">Photonvision</a>
+            <a href="#github">REV</a>
+            <a href="#github">SysID</a>
+            <a href="#github">AdvantageScope</a>
+            <a href="#github">Pathplanner</a>
+            <a href="#github">Logging</a>
+            <a href="#github">Simulations</a>
+            <a href="#github">SmartDashBoard</a>
+        </div>
+        <h2>Setting up the Project and Pushing it to Github</h2>
+        <ul class="outer-list">
+                <li>Make sure Git is downloaded and Git is configured correctly: <br><a href="https://docs.github.com/en/get-started/quickstart/set-up-git">https://docs.github.com/en/get-started/quickstart/set-up-git</a>
+                </li>
+                <li>When starting a VSC project, make your VSC project first and connect to the Github repository second.
+                </li>
+        </ul>
+        <h2>Creating the project:</h2>
+        <ol type="1" class="outer-list">
+            <li>Click the W in the corner. A search bar should open up that already says ”>WPILib”
+            </li>
+            <li>In the search bar, type ‘Create a new project’. This should prompt you with the WPILib Project Creator.
+            </li>
+            <li>Click Select a project type (Example or Template), and select Template.
+            </li>
+            <li>Select java as the language.
+            </li>
+            <li>Select Command Robot as the project base.
+            </li>
+            <li>Select a new project folder. You don’t need to make a new folder to put the project in! We normally put it on Desktop to make it easier for us to access.
+            </li>
+            <li>Input the Project Name.
+            </li>
+            <li>Make sure “Create a new folder?” is checked.
+            </li>
+            <li>Input 2265 as the Team Number.
+            </li>
+            <li>Check “Enable Desktop Support” (allows us to run simulations)
+            </li>
+            <li>Click Generate Project.
+            </li>
+        </ol>
+        <h2>Connecting the project to the repository:</h2>
+        <ol type="1" class = "outer-list">
+            <li>Make sure the repository exists on Github.com under the FeMaidens organization.
+            </li>
+            <ol type = "a" class = "inner-list">
+                <li>If the repository doesn’t exist on Github.com, make one! </li>
+                <li>Click New, enter the repository name, and make the repository public (or private). If you don’t see the New button, you probably don’t have the permissions to make a repository, so ask an Owner to create one
+                </li>
+            </ol>
+            <li>Open a terminal and type the following (in order):
+            </li>
+            <ul class="outer-list">
+                <li>// assumes this is your first time initializing/creating the project
+                    <br>git init -b main
+                    <br>git remote add origin <git-https-url>
+                    <br>git status
+                    <br>git add -A
+                    <br>git commit -m "initial commit" // explains what commit is about
+                    <br>git push -u origin main // pushes changes to github while creating a tracking branch</li>
+            </ul>
+            <h2>Adding Project Libraries</h2>
+            <ul class="outer-list">
+                <li>Under vendordeps, you should be able to see the libraries you have added to your project.
+                </li>
+                <li>There are at least 3 libraries you will need in your project:	
+                </li>
+                <li>RevRobotics Libraries, Phoenix Libraries, and WPILib New Commands (should already be in your project)
+                </li>
+                <li>To add libraries manually to your project:	
+                </li>
+                <ol type = "1" class="inner-list">
+                    <li>Click on the W in the corner.
+                    </li>
+                    <li>Type Manage Vendor Libraries.
+                    </li>
+                    <li>Click Install Libraries (online).
+                    </li>
+                    <li>Copy and paste each link individually to add the following three libraries:
+                    </li>
+                    <ol type="a" class="inner-list">
+                        <li>RevRobotics: https://software-metadata.revrobotics.com/REVLib-2025.json   
+                        </li>
+                        <li>Phoenix: https://maven.ctr-electronics.com/release/com/ctre/phoenix6/latest/Phoenix6-frc2025-latest.json
+                        </li>
+                        <li>Kauai Labs: https://dev.studica.com/releases/2025/Studica-2025.0.0.json 
+                        </li>
+                    </ol>
+                    <li>Check vendordeps again to make sure all libraries have been added.
+                    </li>
+                </ol>
+                <li>check 3rd Party Libraries — FIRST Robotics Competition documentation for all 3rd party libraries! 
+                </li>
+            </ul>
+        </ol>
+        <h2>[TO UPDATE: NEW COMMANDBASE]Subsystems/Commands/Command Groups/Other Files
+        </h2>
+        <h3>Making a file:</h3>
+        <ol type="1" class="outer-list">
+            <li>To make a file, right click the java \ frc \ robot folder and click Create a new class/command.
+            </li>
+            <li>Select the type of class/command you’re making. Make sure to select (Old), not (New)! We normally use:
+            </li>
+            <ol type="a" class="inner-list">
+                <li>Subsystem (Old)
+                </li>
+                <li>Command (Old)
+                </li>
+                <li>Command Group (Old)
+                </li>
+            </ol>
+            <li>Type in the name of the subsystem/command/command group.
+            </li>
+            <ol type="a" class="inner-list">
+                <li>Ex. Auton.java
+                </li>
+                <li>When the file is created, make sure it says either: 
+                </li>
+                <ol type="i" class = "inner-list">
+                    <li>extends Subsystem 
+                    </li>
+                    <li>extends Command 
+                    </li>
+                    <li>extends CommandGroup {
+                    </li>
+                </ol>
+                <li>It should NOT say something like "extends SubsystemBase "
+                </li>
+            </ol>
+            <li>We typically organize our files in folders (Subsystem folder, Command folder, and CommandGroup folder).
+            </li>
+        </ol>
+        <h2>Subsystem</h2>
+        <ul class = "outer-list">
+            <li>One subsystem per mechanism
+            </li>
+            <li>In the past, we have had subsystems for Drivetrain, Intake, Hopper, Climb, Shooter, etc.
+            </li>
+            <li>Each subsystem should have:
+            </li>
+            <ul class = "inner-list">
+                <li>Instantiated motors, solenoids, sensors, etc. that are required for the mechanism
+                </li>
+                <li>Constructor
+                </li>
+                <li>Methods for the mechanism
+                </li>
+                <li>initDefaultCommand() method (can be empty or filled depending on the subsystem)
+                </li>
+                <ul class = "inner-list">
+                    <li>In our Drivetrain subsystem, we typically set the DriveTeleop() command as the default command because we want it to run when called. 
+                    </li>
+                </ul>
+            </ul>
+        </ul>
+        <h2>Command:
+        </h2>
+        <ol class = "outer-list">
+            <li>An action
+            </li>
+            <li>Sometimes bound to a button and sometimes used in a command group
+            </li>
+            <li>For example, we have an ExtendIntake() command to extend the intake. This command is bound to a button so that when we press the button, the intake is extended.
+            </li>
+            <li>Each command should have:
+            </li>
+            <ol class = "inner-list">
+                <li>Any variables/constants that need to be declared (if any)
+                </li>
+                <li>Constructor which should call requires();
+                </li>
+                <ol class = "inner-list">
+                    <li>Ex. requires(Robot.shooter);
+                    </li>
+                </ol>
+                <li>protected void initialize() {}
+                </li>
+                <li>protected void execute() {}
+                </li>
+                <li>protected boolean isFinished() {}
+                </li>
+                <ol class = "inner-list">
+                    <li>Should return a boolean
+                    </li>
+                </ol>
+                <li>protected void end() {}
+                </li>
+                <ol class = "inner-list">
+                    <li>Stop any motors spinning if necessary
+                    </li>
+                </ol>
+                <li>protected void interrupted() {}
+                </li>
+                <ol class = "inner-list">
+                    <li>Stop any motors spinning if necessary
+                    </li>
+                    <li>Called when _____ 
+                    </li>
+                </ol>
+            </ol>
+        </ol>
+        <h2>How we create/organize commands and bind them to different buttons(2024):
+        </h2>
+        <ul class = "outer-list">
+            <li>Create a class inside of the commands folder and name it based on the functions of the commands(for example if the commands are for intaking name the class “Intaking”)
+            </li>
+            <li>Define fields(what subsystems you are going to be using)
+            </li>
+            <li>In the constructor, make sure you are referring to the object in the class
+            </li>
+            <li>Define your commands under the constructor
+            </li>
+            <li>Then in the RobotContainer, bind the buttons to the specified command based on what condition you want to trigger the command
+            </li>
+            <li>Then you’re basically done and make sure the joystick you are assigning the command to is in the right port
+            </li>
+        </ul>
+        <h2>Command Group:
+        </h2>
+        <ul class = "outer-list">
+            <li>Series of actions
+            </li>
+            <li>We usually use command groups for auton code.
+            </li>
+            <li>Say, for instance, that the robot starts at a certain position, and the plan for auton is to intake one ball and shoot it. We would have to write a command group that has the series of steps required for this auton to work.
+            </li>
+            <li>Use the addSequential() and addParallel(). Read the API or check out this <a href="https://docs.google.com/presentation/d/1X7aKAnZtp7TJhL8VPRCVFq66wWTQBeUCEgjw9tRGKfk/edit?usp=sharing">presentation.</a>
+            </li>
+        </ul>
+        <h2>Ports.java:        </h2>
+        <ul class = "outer-list">
+            <li>We list out our port numbers here in Ports.java.
+            </li>
+            <li>For example, when you instantiate an object in another class, you write something like this:
+            </li>
+            <ul class = "inner-list">
+                <li>public static CANSparkMax rearRight = new CANSparkMax(Ports.REAR_RIGHT_DRIVE, MotorType.kBrushless);
+                </li>
+                <li>Ports.REAR_RIGHT_DRIVE refers to a variable in the Ports class.
+                </li>
+            </ul>
+        </ul>
+        <h2>Robot.java:
+        </h2>
+        <ul class = "outer-list">
+            <li>Main things to remember:
+            </li>
+            <ul class = "inner-list">
+                <li>Should be extends TimedRobot
+                </li>
+                <li>Instantiate subsystems
+                </li>
+                <ul class = "inner-list">
+                    Ex. public static Drivetrain drivetrain; outside the methods and drivetrain = new Drivetrain(); inside the robotInit() method.
+                </ul>
+                <li>Instantiate the Robot Container inside the robotInit() method including any method you want to run when the robot is started up
+                </li>
+                <li>Make sure you are instantiating the getAutonomousCommand() method from the Robot Container and scheduling it
+                </li>
+            </ul>
+        </ul>
+        <h2>RobotContainer.java:
+        </h2>
+        <ul class = "inner-list">
+            <li>In the Robot Container, we create Joysticks and Buttons.
+            </li>
+            <li>In the Robot Container, we create Joysticks and Buttons.
+            </li>
+            <li>To bind the button to a command, call the appropriate method on the specific button, and in the parenthesis, write the command name.
+            </li>
+            <li>Common Button Methods:
+            </li>
+            <ul class = "inner-list">
+                <li>toggleWhenPressed()
+                </li>
+                <li>whenPressed()
+                </li>
+                <li>whenReleased()
+                </li>
+                <li>whileHeld()
+                </li>
+            </ul>
+            <li>In the parenthesis of the method, write new and the command you want to bind the button to.
+            </li>
+        </ul>
+        <p><b>Notes: Organize your buttons based on its function(drive buttons, climb buttons, etc) and leave comments on what it does
+        </b></p>
+        <p>The RobotContainer class also allows you to configure the auton in the configureAuton() method
+        </p>
+        <ul class = "outer-list">
+            <li>The configureAuton() method configures everything auton related(ex. Allowing the user to choose what auton to use)
+            </li>
+            <li>The configureDefaultCommands() configures the default commands(ex. Setting the default command for each subsystem using methods)
+            </li>
+        </ul>
+    </div>
+</body>
+
+</html>
