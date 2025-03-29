@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="page-style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Limelight & Pipeline</title>
+</head>
+
+
+<body>
+    <div class="main-content">
+        <header>
+            <h2>Limelight & Pipeline</h2>
+        </header>
+        <div class="sidebar">
+            <a href="index.html">Introduction</a>
+            <a href="#todobuildseason">Things To Do At the Start Of Build Season</a>
+            <a href="#bestcodepractices.html">Best Code Practices</a>
+            <a href="github.html">GitHub</a>
+            <a href="apis.html">APIs</a>
+            <a href="driverstation.html">Driver Station</a>
+            <a href="limelightpipeline.html">Limelight & Pipeline</a>
+            <a href="#github">GitHub</a>
+            <a href="#github">Sensors</a>
+            <a href="#github">Radio Configuration</a>
+            <a href="#github">Photonvision</a>
+            <a href="#github">REV</a>
+            <a href="#github">SysID</a>
+            <a href="#github">AdvantageScope</a>
+            <a href="#github">Pathplanner</a>
+            <a href="#github">Logging</a>
+            <a href="#github">Simulations</a>
+            <a href="#github">SmartDashBoard</a>
+        </div>
+
+        <a href="https://docs.github.com/en">https://docs.github.com/en</a>
+        <h2>Connecting to the Limelight</h2>
+        <p>There are two ways to connect to the limelight:</p>
+        <ul class="outer-list">
+                <ol type="1" class="inner-list">
+                    <li>limelight.local.5801</li>
+                    <li>Using the Limelight Finder app</li>
+                </ol>
+        </ul>
+        <p>If the computer is connected to the radio and limelight.local:5801 doesn’t work, then you have to use the Limelight Finder app to find the limelight.</p>
+        <p>To use the Limelight Finder app:</p>
+        <ol type="1" class="outer-list">
+            <li>Open the Limelight Finder.</li>
+            <li>Click Find Limelights.</li>
+            <li>Once you see our limelight (the team # should say 2265), click on it and then click Configure Selected.</li>
+            <li>This should open a local host on your computer!</li>
+        </ol>
+        <h2>Configuring the Pipeline</h2>
+        <ul class="outer-list">
+            <li>Wire and connect limelight to radio and RoboRio</li>
+            <li>Press red button (off) + switch (on) connected to battery to turn on and off</li>
+            <li>Connect laptop to radio through wifi network (ex: 2265_Kermit). The laptop needs to be connected to the radio in order to connect to the limelight.</li>
+            <li>Go to website: limelight.local:5801            </li>
+        </ul>
+        <h2>Aligning the Limelight</h2>
+        <ul class="outer-list">
+            <li>Goal: The red box should align with the edges of the retroreflective tape and the blue box should align to match the tape as well (example and extra tips further down).
+            </li>
+            <li>Make the retroreflective tape as distinctive from the background as possible.
+            </li>
+            <li>Use the red lines to guide you. Notice the location of the pixels -- make sure the tape is completely outlined with red pixels.
+            </li>
+        </ul>
+        <ol type="1" class="outer-list">
+            <li>Input → Change Exposure first → Move onto editing Black Level Offset, Red Balance, and Blue Balance
+            </li>
+            <li>Thresholding → Eyedropper on one corner of retroreflective tape → Include Pixel on one of the other corners/edges</li>
+            <li>Play around with the values under Thresholding (start from big to small)
+            </li>
+            <li>Keep messing with the Input and Thresholding values until all of the outlines are steady.
+            </li>
+            <li>As a final check, move the camera and board around to check that the outlines are stable. The blue box should be stable no matter how the target or limelight moves.
+            </li>
+        </ol>
+        <h2>Tips</h2>
+        <ul class="outer-list">
+            <li>Use Include Pixel to steady the blue and yellow box.
+            </li>
+            <li>Never use Ignore Pixel.
+            </li>
+            <li>Don’t turn the Black Level Offset to 0.
+            </li>
+            <li>Don’t let Hue or Value get too small.
+            </li>
+            <li>Use the arrow keys to move the bar by 1.
+            </li>
+            <li>Make the bar for the values under Thresholding large at first and continue to decrease it to get the right value (go from big to small).
+            </li>
+        </ul>
+        <h2>Terms: (defined more clearly in the powerpoint linked above)</h2>
+        <ul class="outer-list">
+            <li>Change exposure: changes the brightness, helps with having the reflective tape stand out from the background
+            </li>
+            <li>Black Level Offset: changes “blackness”/darkness of background. Do not turn all the way down.
+            </li>
+        </ul>
+        <h2>Turn off limelight:</h2>
+        <p>Press the red button.</p>
+    </div>
+</body>
+
+</html>
