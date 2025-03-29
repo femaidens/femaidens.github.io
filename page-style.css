@@ -68,10 +68,14 @@ header {
 .inner-list{
     margin-left: 60px;
     color:#c800ff;
+    line-height: 1.6;
 }
 .outer-list{
     margin-left: 40px;
     color:#1c0658;
+}
+.li{
+    line-height: 1.6;
 }
 code {
     font-family: Consolas,"courier new";
