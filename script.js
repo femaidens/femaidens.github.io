@@ -1,36 +1,39 @@
-// script.js
-
-let startX = 0; // Store the starting touch point for swipe gesture
-
-// Function to toggle the sidebar visibility
+// Handle opening and closing of the sidebar
 function toggleSidebar() {
     const sidebar = document.querySelector('.sidebar');
-    sidebar.classList.toggle('open'); // Toggle the 'open' class to slide the sidebar in/out
+    const content = document.querySelector('.content');
+    
+    sidebar.classList.toggle('open'); // Toggle the 'open' class on sidebar
+    
+    // Add/remove the 'sidebar-open' class to the content for proper alignment
+    content.classList.toggle('sidebar-open');
 }
 
-// Detect swipe left to open sidebar and swipe right to close it
+// Add event listener for mobile swipe (optional)
+let startX = 0; // Store the starting touch point for swipe gesture
+
+// Detect swipe gestures for mobile devices
+function handleTouchStart(event) {
+    startX = event.touches[0].clientX; // Get the initial touch position
+}
+
+// Handle swipe movement and detect swipe direction
 function handleSwipe(event) {
     const sidebar = document.querySelector('.sidebar');
-    const touchEndX = event.changedTouches[0].clientX; // Get the ending touch point
+    const touchEndX = event.changedTouches[0].clientX; // Get the ending touch position
 
-    // Calculate swipe distance
-    const swipeDistance = startX - touchEndX;
+    const swipeDistance = startX - touchEndX; // Calculate swipe distance
 
     if (swipeDistance > 50) {
-        // Swipe left (show sidebar)
-        sidebar.classList.add('open');
+        sidebar.classList.add('open'); // Swipe left to open the sidebar
     } else if (swipeDistance < -50) {
-        // Swipe right (hide sidebar)
-        sidebar.classList.remove('open');
+        sidebar.classList.remove('open'); // Swipe right to close the sidebar
     }
 }
 
-// Detect swipe start
-function handleTouchStart(event) {
-    startX = event.touches[0].clientX; // Store the starting touch point
-}
-
-// Attach swipe event listeners to the document
+// Attach event listeners for swipe gestures
 document.addEventListener('touchstart', handleTouchStart);
 document.addEventListener('touchend', handleSwipe);
 
+// Toggle button for opening/closing sidebar
+document.querySelector('.sidebar-toggle').addEventListener('click', toggleSidebar);
