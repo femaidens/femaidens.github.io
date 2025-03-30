@@ -39,10 +39,10 @@ body {
     .sidebar.open {
         transform: translateX(0); 
     }
-
-
-}
-/* Mobile toggle button style */
+    .sidebar ul {
+        padding-top: 60px; /* Adjust padding for mobile */
+    }
+    /* Mobile toggle button style */
 .sidebar-toggle {
     position: fixed;
     top: 20px;
@@ -53,6 +53,7 @@ body {
     padding: 15px;
     font-size: 20px;
     z-index: 15;
+}
 }
 
 ::-webkit-scrollbar {
