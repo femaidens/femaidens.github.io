@@ -15,7 +15,7 @@ body {
 /* Sidebar styling */
 .sidebar {
     height: 100%;
-    width: 250px;
+    width: 500px;
     background-color: #333;
     padding-top: 20px;
     position: fixed;
@@ -25,10 +25,14 @@ body {
     overflow-y: scroll;
 }
 
+::-webkit-scrollbar {
+    display: none;
+}
+
 .sidebar a {
     display: block;
     color: white;
-    padding: 14px 20px;
+    padding: 14px 100px;
     text-decoration: none;
     text-align: left;
 }
@@ -40,7 +44,7 @@ body {
 
 /* Main content styling */
 .main-content {
-    margin-left: 260px;
+    margin-left: 510px;
     padding: 20px;
     max-width: 1000px;
     width: 100%;
@@ -48,7 +52,7 @@ body {
 
 /* Header styling */
 header {
-    background-color: #c800ff;
+    background-color: #a50dcf;
     color: white;
     padding: 20px;
     text-align: center;

@@ -34,6 +34,32 @@
             <a href="simulations.html">Simulations</a>
             <a href="smartdashboard.html">SmartDashBoard</a>
         </div>
+        <p><a href="https://docs.google.com/presentation/d/1xsIlPd9rBBhFUV1ZsmOzRwwlVtCv3kRvJZe_lKxlVZQ/edit#slide=id.g17ff1b94c55_0_134">SysID Presentation</a></p>
+        <h2>What is SysID?</h2>
+        <ul class="outer-list">
+            <li>Short for system identification: the process of determining a mathematical model for the behavior of a system through statistical analysis of its inputs and outputs
+            </li>
+            <li>Basically how we determine PID and feedforward constants
+            </li>
+        </ul>
+        <h2>Types of SysID tests:</h2>
+        <p><b>Quasistatic:</b> In this test, the mechanism is gradually sped-up such that the voltage corresponding to acceleration is negligible (hence, “as if static”).
+        </p>
+        <p><b>Dynamic:</b> In this test, a constant ‘step voltage’ is given to the mechanism, so that the behavior while accelerating can be determined.</p>
+        <ul class="outer-list">
+            <li>Each test type is run both forwards and backwards
+            </li>
+            <li>Before creating a SysID routine, a method to set the voltage is necessary for the subsystems you are going to run the tests on 
+            </li>
+            <li>Define the SysID Routines in the subsystem(one for driving and another for turning)
+            </li>
+            <li>Then create the SysID commands in the subsystem for dynamic and quasistatic
+            </li>
+            <li>Bind the command to a button(make sure to test reverse and forward)</li>
+            <li>Use the DataLogTool to retrieve the log file from the roboRIO</li>
+        </ul>
+        <p>Further instructions for obtaining log values and analyzing values can be found here: </p>
+        <p><a href="https://docs.wpilib.org/en/stable/docs/software/advanced-controls/system-identification/loading-data.html">https://docs.wpilib.org/en/stable/docs/software/advanced-controls/system-identification/loading-data.html</a></p>
     </div>
 </body>
 

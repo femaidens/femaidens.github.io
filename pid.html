@@ -34,6 +34,19 @@
             <a href="simulations.html">Simulations</a>
             <a href="smartdashboard.html">SmartDashBoard</a>
         </div>
+        <p>What is PID? PID is a feedback controller that consists of proportional, integral, and derivative terms. It is a closed loop system that allows the robot to get to a setpoint as accurately as possible with minimal time.(You can look into the math as it helps you understand how it works and adjust PID values but knowing this definition is definitely enough)</p>
+        <p>For example you need PID for an elevator to extend up to close to 4 feet.</p>
+        <p><a href="https://docs.wpilib.org/en/stable/docs/software/advanced-controls/introduction/introduction-to-pid.html">Introduction to PID</a></p>
+        <p><b>How to use PID Controllers in Code</b></p>
+        <p><a href="https://github.com/femaidens/2025-Reefscape/blob/swerve-3-1/src/main/java/frc/robot/subsystems/Elevator.java">Referenced Code</a></p>
+        <p>We use PID Controllers in our code to run PID loops for certain mechanisms. We first initialize the PID Controller in the code like this:
+        </p>
+        <p>Then you would need to set the tolerance of the PID Controller(percentage of error, sets a range for the acceptable setpoint)
+        </p>
+        <p>Set the Motor Voltage to the voltage outputted by the calculate() method for the PID Controller
+        </p>
+        <p>Set the method to a command, bind the command to a button, and you’re done!
+        </p>
     </div>
 </body>
 

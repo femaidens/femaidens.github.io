@@ -34,6 +34,49 @@
             <a href="simulations.html">Simulations</a>
             <a href="smartdashboard.html">SmartDashBoard</a>
         </div>
+        <ul class="outer-list">
+            <li>A motion profile generator for FRC robots</li>
+            <li>Can be used to create autonomous paths
+            </li>
+            <li><a href="https://pathplanner.dev/pplib-getting-started.html#install-pathplannerlib">Look over the pathplanner docs</a> for the basic code structure and how to use the application
+            </li>
+        </ul>
+        <p><a href="https://pathplanner.dev/gui-getting-started.html">Getting Started</a></p>
+        <ul class="outer-list">
+            <li>To create a path, create a series of waypoints that can be chained together
+            </li>
+            <li>X position, Y position, heading(deg) and next control length(m) can be set
+            </li>
+        </ul>
+        <p><a href="https://pathplanner.dev/gui-editing-paths-and-autos.html#paths">overview of how to create paths + descriptions of waypoints</a></p>
+        <h2>How to implement Pathplanner into code(individual paths):
+        </h2>
+        <ol class="outer-list" type="1">
+            <li>Install the <a href="https://3015rangerrobotics.github.io/pathplannerlib/PathplannerLib.json  ">Pathplanner Library</a> + make sure you have your paths created on the pathplanner docs already(be specific with the naming of the paths)
+            </li>
+            <li>Configure the AutoBuilder(setting up paths for the robot to follow) in the drivetrain subsystem(we are using a holonomic swerve drive)
+            </li>
+            <li>Notes: make sure there is a method in the subsystem for the following:
+            </li>
+            <ul class="inner-list">
+                <li><code>getPose</code> - Returns the current robot pose as a <code>Pose2d</code></li>
+                <li><code>resetPose</code> = Resets the robot's odometry to the given pose</li>
+                <li><code>getRobotRelativeSpeeds</code> or <code>getCurrentSpeeds</code> = Returns the current robot-relative <code>ChassisSpeeds</code>. This can be calculated using one of WPILIB's drive kinematics classes</li>
+                <li><code>driveRobotRelative</code> or <code>drive</code> - Outputs commands to the robot's drive motors given robot-relative <code>ChassisSpeeds</code>. This can be converted to module states or wheel speeds using WPILIB's drive kinematics classes</li>
+            </ul>
+            <p>(this is taken from the pathplanner docs but adjust based on code)</p>
+            <li>Load the auto from the pathplanner in the Robot Container
+            </li>
+            <li>Create a Sendable Chooser with either all autos or some autos in the project</li>
+            <li>Register named commands from subsystems so that they can be implemented into the Pathplanner paths through the application(for example autoBalance, shoot during auton etc.)
+            </li>
+            <p>There should be a place to put specific commands according to specific waypoints
+            </p>
+            <li>Create a command for the auto builder to follow the path
+            </li>
+        </ol>
+        <h2>Option to implement path groups:
+        </h2>
     </div>
 </body>
 

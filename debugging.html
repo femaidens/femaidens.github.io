@@ -34,6 +34,61 @@
             <a href="simulations.html">Simulations</a>
             <a href="smartdashboard.html">SmartDashBoard</a>
         </div>
+        <h2>Debugging Tips</h2>
+        <p>If you’re ever stuck on code and need some help debugging, look here for some tips from previous members:
+        </p>
+        <ul class="outer-list">
+            <li>Reference your code to past code(only if it is updated and still applicable to your code)</li>
+            <li>Reference your code to other team’s code(depending on the error it may or may not help)
+            </li>
+            <li>Look at the API/example code from documentation to see how they implemented what you’re trying to do
+            </li>
+            <li>Research online and find code on ChiefDelphi/Google or wherever you find it</li>
+            <li>DO NOT USE AI TO HELP YOU FIX THE ERROR! It gives wrong answers 99% of the time </li>
+            <li>Ask other people if they know how to fix the error and let them teach you(more like a last resort, we want you to try to figure it out yourself first before asking)
+            </li>
+            <li>If you’ve asked everyone in the department and they don’t know how to fix the error, you could ask online platforms like ChiefDelphi/programming members from other teams/Discord servers for FRC programming help(a last last resort)</li>
+        </ul>
+        <h3>General Debugging Approaches</h3>
+        <p>What is a general approach to debugging?
+        </p>
+        <p>When an error appears on the console, you usually get directed to a line in which the error is found/the line that is causing the problem and giving you red. If you don’t have the console to help you and the robot isn’t operating the way it is intended to, what button(s) led to the error occurring? What command/sequential command group is binded to that button? Why is it acting weird? Is it doing too much or too little? Through asking yourself these questions, you should be able to single out the subsystem in which the error could occur, or even the specific item that is giving you trouble. When this happens, you want to look at the content of the error.
+        </p>
+        <p>For example, if the error seems to be because of a method, you want to check the method to see if the logic of the method makes sense. Run a scenario, does the code run the way you want it to? If it does, you need to check what’s being called in that method. 
+        </p>
+        <p>Are the objects being called doing the right thing/following what the method is meant to do? Are the constants used to run the object correct? </p>
+        <p>You need to run that error line all the way back to its most basic statements until you find the error. Isolating the issue and running things individually can always be very helpful in the process of debugging. Maybe it’s just part of the code logic that isn’t quite running the way that it’s supposed to. Breaking things down to its smallest components is always a strategy that works. If you can isolate the problem, fix it, and then slowly rebuild the method’s functionalities to its most complete state, any error can be resolved. If you’re still stuck after every possible method, remember that there is nothing wrong with asking on Chief Delphi for help. The FIRST community is very nice and willing to help you, and you will often have one or two responses to your inquiries within two days or so.</p>
+        <h3>How can we utilize the Rio Log/Console to identify coding errors?
+        </h3>
+        <p>Identify errors through the log(find lines that the log identifies to be problematic)
+        </p>
+        <p>Implement print statements(“Running [method name]) at the end of the method where there might be a problem to see if it’s being called/used.
+        </p>
+        <p>You can also record values through SmartDashBoard/Monologue/any other logging software to see if those values may be a problem
+        </p>
+        <p>If you have no idea what the error means you can try searching it up
+        </p>
+        <h3>How can we identify misused Ports and IDs through different softwares?
+        </h3>
+        <p>For Sparkmaxes: connect SparkMax to computer using USB(orange wire) and use SparkMax Hardware Client to identify IDs and compare the IDs with the ports in the code
+        </p>
+        <p>For Joysticks: check code for operator/driver ports and go to Driver Station(assuming you have the joysticks plugged into the computer) and then in the USB order drag the joysticks to the appropriate port</p>
+        <h3>How can we utilize print statements for debugging (as a last resort)?
+        </h3>
+        <p>You can write print statements at the end of a method (ex: “Running”) so that if there are errors when the program is run, you can identify which method is not being called or what part of it is being skipped. Print statements can also be used to print out the value of a variable at a certain point in the code, so if the value seems off you can identify an error in a previous block of code or in how the variable is being updated.</p>
+        <h3>How can we analyze the colors of SparkMaxes for quicker debugging?
+        </h3>
+        <p><a href="https://docs.revrobotics.com/brushless/spark-max/status-led">SPARK MAX Status LED Patterns</a>→ This linked page will indicate important status information on its multi-colored STATUS LED located on the top of its case. The following tables show each state and the corresponding LED color pattern. 
+        </p>
+        <p>By being knowledgeable ourselves and not relying on electronics to identify these color patterns, we can identify if the solution should be made on our part or by an electronics member!
+        </p>
+        <h3>How can we identify which changes should be resolved when merging?
+        </h3>
+        <p>Accept changes that you want in the code and decline changes that you don’t want in the code
+        </p>
+        <h3>How can we approach errors when testing?(incomplete)</h3>
+        <h2>BUGFINDER: <a href="https://docs.google.com/spreadsheets/d/1Z9QjqfpWwTYlXz7l3oV-93kr0vqc4pcPDLkk5__alPc/edit?gid=0#gid=0">A sheet with all our errors!</a></h2>
+        <h2>**Add common or confusing errors for future notice</h2>
     </div>
 </body>
 

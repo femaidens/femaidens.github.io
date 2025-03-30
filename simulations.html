@@ -34,6 +34,30 @@
             <a href="simulations.html">Simulations</a>
             <a href="smartdashboard.html">SmartDashBoard</a>
         </div>
+        <ul class="outer-list">
+            <li>We use simulations whenever we cannot test the physical robot and need to test simulated values</li>
+            <li>We use AdvantageScope and the WPILIB provided “Simulate Code” function</li>
+            <li>If you want to see examples, create a new project -> example -> Java -> (the template WPILIB provides)
+            </li>
+        </ul>
+        <h2>To simulate the code:</h2>
+        <p>WPILIB icon in top right corner -> Simulate Robot Code -> Sim GUI
+        </p>
+        <ul class="outer-list">
+            <li>Make sure that the robot state is in <b>teleoperated</b></li>
+            <li><b>Remember to drag over one of the keyboard items over to one of the Joysticks or else button bindings will not work! <a href="https://docs.wpilib.org/en/stable/docs/software/wpilib-tools/robot-simulation/simulation-gui.html">See here</a>
+            </b></li>
+        </ul>
+        <h2>To get a more visual representation, use Advantage Scope:
+        </h2>
+        <p>WPILIB icon in top right corner -> Start Tool -> Advantage Scope</p>
+        <p>Go to File -> Connect to Simulator </p>
+        <p>Drag measured values into the fields(left axis, discrete fields, right axis)
+        </p>
+        <p>Example: Single Motor Arm Sim(used button one for this one to adjust angle)
+        </p>
+        <p>You can adjust the preferences by pressing the scroll bar icon next to the search bar and then typing in the values, so you will be able to change the PID values and arm position directly without having to relaunch the whole simulation.</p>
+        <p>For Drivetrain Simulations on Advantage Scope make sure there is a method to record the 3d Pose/2d Pose</p>
     </div>
 </body>
 
