@@ -34,6 +34,23 @@
             <a href="simulations.html">Simulations</a>
             <a href="smartdashboard.html">SmartDashBoard</a>
         </div>
+        <p>Why should you use a coprocessor for vision?</p>
+        <ul class="outer-list">
+            <li>Putting vision in a separate processor ensures that issues such as memory usage, high CPU, etc will not crash robot programs. A Raspberry Pi 4 has 4x the processing power of a RoboRio.
+            </li>
+            <li>Reduced latency: faster processing (less time to process a frame)
+            </li>
+        </ul>
+        <p>The following sections on setting up and calibrating cameras will be following photonvision.</p>
+        <h2>Setting Up Cameras
+        </h2>
+        <p>In order to calibrate the cameras, you should first set it up via an application called Arducam UVC SerialNumber. 
+        </p>
+        <p>It asks for three values: The device, the name you want to set it up to, and the serial number, which can be found on the box name. Make sure to connect the camera to your laptop via a USB cable!</p>
+        <p>In order to set it up, click Write. If you want to check what’s already on the camera, click Read. </p>
+        <h2>Calibrating Orange Pis(s)</h2>
+        <p>Continuing from Setting Up Cameras: Next, we need to go to the photonvision site. It should be under the IP address 10.22.65.11:5800, but if not, go to the link photonvision.local:5800. There, you should see a site as such:
+        </p>
     </div>
 </body>
 
