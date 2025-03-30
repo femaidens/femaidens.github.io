@@ -14,75 +14,16 @@ body {
 
 /* Sidebar styling */
 .sidebar {
-    height: 100%;            /* Make sure sidebar takes full height of the screen */
-    width: 250px;            /* Set default sidebar width for both desktop and mobile */
-    background-color: #333;  /* Dark background color */
+    height: 100%;
+    width: 500px;
+    background-color: #333;
     padding-top: 20px;
     position: fixed;
     top: 0;
     left: 0;
     padding-left: 10px;
-    overflow-y: auto;        /* Allow scrolling when content overflows */
-    transform: translateX(-250px); /* Initially hide the sidebar off-screen */
-    transition: transform 0.3s ease-in-out; /* Smooth transition */
-    z-index: 10;
+    overflow-y: scroll;
 }
-
-/* Sidebar opened state */
-.sidebar.open {
-    transform: translateX(0); /* Bring sidebar into view */
-}
-
-/* Sidebar links styling */
-.sidebar ul {
-    list-style: none;
-    padding: 0;
-}
-
-.sidebar li {
-    padding: 10px;
-    text-align: center;
-}
-
-.sidebar a {
-    color: white;
-    text-decoration: none;
-    display: block;
-}
-
-/* Main content area */
-.content {
-    transition: margin-left 0.3s ease-in-out;
-    margin-left: 0; /* No margin by default */
-    padding: 20px;
-}
-
-/* Mobile/Tablet Styles */
-@media screen and (max-width: 768px) {
-    /* Mobile-specific sidebar width */
-    .sidebar {
-        width: 250px; /* Adjust sidebar width for mobile */
-    }
-
-    /* Adjust content area when sidebar is open */
-    .content.sidebar-open {
-        margin-left: 250px; /* Push the content area to the right */
-    }
-
-    /* Mobile toggle button */
-    .sidebar-toggle {
-        position: fixed;
-        top: 20px;
-        left: 20px;
-        background-color: #333;
-        color: white;
-        border: none;
-        padding: 15px;
-        font-size: 20px;
-        z-index: 15;
-    }
-}
-
 
 ::-webkit-scrollbar {
     display: none;
@@ -102,18 +43,18 @@ body {
 }
 
 .codebox {
-    /* Below are styles for the codebox (not the code itself) */
-    border:1px solid black;
-    background-color:#EEEEFF;
-    width:300px;
-    overflow:auto;    
-    padding:10px;
-}
-.codebox code {
-    /* Styles in here affect the text of the codebox */
-    font-size:0.9em;
-    /* You could also put all sorts of styling here, like different font, color, underline, etc. for the code. */
-}
+        /* Below are styles for the codebox (not the code itself) */
+        border:1px solid black;
+        background-color:#EEEEFF;
+        width:300px;
+        overflow:auto;    
+        padding:10px;
+    }
+    .codebox code {
+        /* Styles in here affect the text of the codebox */
+        font-size:0.9em;
+        /* You could also put all sorts of styling here, like different font, color, underline, etc. for the code. */
+    }
 
 /* Main content styling */
 .main-content {
