@@ -39,6 +39,16 @@
             <li>To log data, we use the DataLogManager class</li>
             <li>Usually use this in the Robot.java class in the robotInit() method using the DataLogManager.start(); method</li>
             <li>This creates logs, initialized at the start of every ENABLE</li>
+            <textarea cols="75" rows="9" readonly>
+public void robotInit() {
+    // Instantiate our RobotContainer.  This will perform all our button bindings, and put our
+    // autonomous chooser on the dashboard.
+    robotContainer = new RobotContainer();
+    DataLogManager.start(); 
+    URCL.start(); //advantage scope
+    Monologue.setupMonologue(this, "/Robot", false, false);
+}                             
+            </textarea>
             <li>Logs will be stored in the RoboRIO memory</li>
             <li>Can be accessed through the following steps: (refer to SysID, covers them)</li>
             <li>VSCode > WPILib: Start Tool > DataLogTool

@@ -81,15 +81,15 @@
             </ol>
             <li>Open a terminal and type the following (in order):
             </li>
-            <ul class="outer-list">
-                <li>// assumes this is your first time initializing/creating the project
-                    <br>git init -b main
-                    <br>git remote add origin <git-https-url>
-                    <br>git status
-                    <br>git add -A
-                    <br>git commit -m "initial commit" // explains what commit is about
-                    <br>git push -u origin main // pushes changes to github while creating a tracking branch</li>
-            </ul>
+            <textarea cols="75" rows="10" readonly>
+// assumes this is your first time initializing/creating the project
+git init -b main
+git remote add origin <git-https-url>
+git status
+git add -A
+git commit -m "initial commit" // explains what commit is about
+git push -u origin main // pushes changes to github while creating a tracking branch  
+</textarea>
             <h2>Adding Project Libraries</h2>
             <ul class="outer-list">
                 <li>Under vendordeps, you should be able to see the libraries you have added to your project.
@@ -237,12 +237,33 @@
             </li>
             <li>Define fields(what subsystems you are going to be using)
             </li>
+            <textarea cols="75" rows="2" readonly>
+private Intake intake;
+private Hopper hopper;
+                </textarea>
             <li>In the constructor, make sure you are referring to the object in the class
             </li>
+            <textarea cols="75" rows="4" readonly>
+public Intaking(Intake intake, Hopper hopper) {
+    this.intake = intake;
+    this.hopper = hopper;
+}
+            </textarea>
             <li>Define your commands under the constructor
             </li>
+            <textarea cols="75" rows="4" readonly>
+public Command setIntakeHopperSetpoints(double setpoint) {
+    return intake.setVelocitySetpointCmd(setpoint)
+    .alongWith(hopper.setVelocitySetpointCmd(setpoint));
+}
+                            </textarea>
             <li>Then in the RobotContainer, bind the buttons to the specified command based on what condition you want to trigger the command
             </li>
+            <textarea cols="75" rows="3" readonly>
+driveJoy.leftTrigger()
+    .onTrue(drivetrain.slowCmd())
+    .onFalse(drivetrain.regularCmd());
+            </textarea>
             <li>Then you’re basically done and make sure the joystick you are assigning the command to is in the right port
             </li>
         </ul>
@@ -264,12 +285,9 @@
             </li>
             <li>For example, when you instantiate an object in another class, you write something like this:
             </li>
-            <ul class = "inner-list">
-                <li>public static CANSparkMax rearRight = new CANSparkMax(Ports.REAR_RIGHT_DRIVE, MotorType.kBrushless);
-                </li>
-                <li>Ports.REAR_RIGHT_DRIVE refers to a variable in the Ports class.
-                </li>
-            </ul>
+                <textarea cols="100" rows="1" readonly>
+public static CANSparkMax rearRight = new CANSparkMax(Ports.REAR_RIGHT_DRIVE, MotorType.kBrushless);
+                </textarea>
         </ul>
         <h2>Robot.java:
         </h2>
@@ -321,8 +339,29 @@
         <ul class = "outer-list">
             <li>The configureAuton() method configures everything auton related(ex. Allowing the user to choose what auton to use)
             </li>
+            <textarea cols="75" rows="6" readonly>
+public void configureAuton() {
+    SmartDashboard.putData("Choose Auto: ", autonChooser);
+    autonChooser.addOption("taxi", new Taxi(drivetrain, hopper, shooterAngle, shooterWheel, AutoConstants.DRIVE_TIME));
+    autonChooser.addOption("taxi amp", new TaxiAmp(drivetrain, hopper, shooterAngle, shooterWheel));
+    autonChooser.addOption("taxi speaker", new TaxiSpeaker(drivetrain, hopper, shooterAngle, shooterWheel));
+}                
+                                </textarea>
             <li>The configureDefaultCommands() configures the default commands(ex. Setting the default command for each subsystem using methods)
             </li>
+            <textarea cols="75" rows="10" readonly>
+public void configureDefaultCommands() {
+    drivetrain.setDefaultCommand(
+        new RunCommand(
+            () -> drivetrain.drive(
+                MathUtil.applyDeadband(-driveJoy.getLeftY(), 0.1),
+                MathUtil.applyDeadband(-driveJoy.getLeftX(), 0.1),
+                MathUtil.applyDeadband(-driveJoy.getRightX(), 0.1),
+                true, false),
+        drivetrain)
+    )
+}            
+                </textarea>
         </ul>
     </div>
 </body>
