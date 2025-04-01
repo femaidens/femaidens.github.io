@@ -13,6 +13,7 @@
             <h2>PhotonVision</h2>
         </header>
         <div class="sidebar">
+            <button class="closebtn" onclick="closeSidebar()">&times;</button>
             <a href="index.html">Introduction</a>
             <a href="todobuildseason.html">Start of Build Season Preparation</a>
             <a href="bestcodepractices.html">Best Code Practices</a>
@@ -34,6 +35,8 @@
             <a href="simulations.html">Simulations</a>
             <a href="smartdashboard.html">SmartDashBoard</a>
         </div>
+        <button class="openbtn" onclick="openSidebar()">&#9776;</button>
+
         <p>Why should you use a coprocessor for vision?</p>
         <ul class="outer-list">
             <li>Putting vision in a separate processor ensures that issues such as memory usage, high CPU, etc will not crash robot programs. A Raspberry Pi 4 has 4x the processing power of a RoboRio.
@@ -71,6 +74,19 @@
         <p>Note: When setting up the board to calibrate the camera using one radio only, the radio should be plugged into the rio via the RIO port on the radio and plugged into the computer via the DS (standing for driver station) port on the radio. With our current laptops, we need an ethernet dongle, which is an ethernet to USB cable ( named Yuna Kim ) ( or Joe hanna Kim ). Since you are now using the 2.4GHz radio frequency, make sure it’s switched on in the back of the radio.
         </p>
     </div>
+    <script>
+        // Function to close the sidebar
+        function closeSidebar() {
+            const sidebar = document.querySelector('.sidebar');
+            sidebar.classList.add('closed');
+        }
+
+        // Function to open the sidebar
+        function openSidebar() {
+            const sidebar = document.querySelector('.sidebar');
+            sidebar.classList.remove('closed');
+        }
+    </script>
 </body>
 
 

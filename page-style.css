@@ -23,6 +23,7 @@ body {
     left: 0;
     padding-left: 10px;
     overflow-y: scroll;
+    transition: transform 0.3s ease;
 }
 
 ::-webkit-scrollbar {
@@ -143,3 +144,69 @@ footer {
         padding: 10px;
     }
 }
+
+  .closebtn {
+    font-size: 36px;
+    color: white;
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.openbtn {
+    font-size: 36px;
+    color: white;
+    position: absolute;
+    top: 10px;
+    left: 25px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 9999; /* Ensure it stays on top */
+}
+
+.sidebar.closed {
+    transform: translateX(-250px);
+    visibility: hidden;
+}
+
+.sidebar:not(.closed) ~ .openbtn {
+    display: none;
+}
+
+.sidebar.closed {
+    width: 0; /* Shrinks the sidebar */
+}
+
+.sidebar.closed ~ .main-content {
+    margin-left: 0; /* Removes the left margin */
+}
+
+/* Sidebar responsive behavior */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 200px;
+        padding-top: 10px;
+    }
+
+    .sidebar a {
+        padding: 10px;
+        font-size: 14px;
+    }
+}
+
+#main {
+    transition: margin-left 0.5s; /* Smooth transition effect */
+    padding: 20px;
+}
+
+  
+  /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+  @media screen and (max-height: 450px) {
+    .sidebar {padding-top: 15px;}
+    .sidebar a {font-size: 18px;}
+  }
+

@@ -17,6 +17,7 @@
             <h2>Visual Studio Code</h2>
         </header>
         <div class="sidebar">
+            <button class="closebtn" onclick="closeSidebar()">&times;</button>
             <a href="index.html">Introduction</a>
             <a href="todobuildseason.html">Start of Build Season Preparation</a>
             <a href="bestcodepractices.html">Best Code Practices</a>
@@ -38,6 +39,9 @@
             <a href="simulations.html">Simulations</a>
             <a href="smartdashboard.html">SmartDashBoard</a>
         </div>
+
+        <button class="openbtn" onclick="openSidebar()">&#9776;</button>
+
         <h2>Setting up the Project and Pushing it to Github</h2>
         <ul class="outer-list">
                 <li>Make sure Git is downloaded and Git is configured correctly: <br><a href="https://docs.github.com/en/get-started/quickstart/set-up-git">https://docs.github.com/en/get-started/quickstart/set-up-git</a>
@@ -325,6 +329,19 @@
             </li>
         </ul>
     </div>
+    <script>
+        // Function to close the sidebar
+        function closeSidebar() {
+            const sidebar = document.querySelector('.sidebar');
+            sidebar.classList.add('closed');
+        }
+
+        // Function to open the sidebar
+        function openSidebar() {
+            const sidebar = document.querySelector('.sidebar');
+            sidebar.classList.remove('closed');
+        }
+    </script>
 </body>
 
 </html>

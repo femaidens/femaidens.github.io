@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang = "en">
+<html lang="en">
 <head>
     <link rel="stylesheet" href="page-style.css">
     <meta charset="UTF-8">
@@ -9,10 +9,9 @@
 </head>
 <body>
     <div class="main-content">
-        <header>
-            <h2>AdvantageScope</h2>
-        </header>
+        <!-- Sidebar -->
         <div class="sidebar">
+            <button class="closebtn" onclick="closeSidebar()">&times;</button>
             <a href="index.html">Introduction</a>
             <a href="todobuildseason.html">Start of Build Season Preparation</a>
             <a href="bestcodepractices.html">Best Code Practices</a>
@@ -34,31 +33,48 @@
             <a href="simulations.html">Simulations</a>
             <a href="smartdashboard.html">SmartDashBoard</a>
         </div>
+
+        <!-- Open Sidebar Button -->
+        <button class="openbtn" onclick="openSidebar()">&#9776;</button>
+
+        <!-- Main Content -->
+        <header>
+            <h2>AdvantageScope</h2>
+        </header>
         <ul class="outer-list">
             <li>A data visualization tool for NetworkTables, WPILib data logs, and Driver Station logs</li>
-            <li>Used to debug real or simulated robot code from a log file or live over the network
-            </li>
-            <li>WPILIB logo in top right corner -> Start Tool -> AdvantageScope
-            </li>
+            <li>Used to debug real or simulated robot code from a log file or live over the network</li>
+            <li>WPILIB logo in top right corner -> Start Tool -> AdvantageScope</li>
         </ul>
         <p>Links:</p>
         <ul class="outer-list">
-            <li><a href="https://docs.wpilib.org/en/stable/docs/software/dashboards/advantagescope.html ">https://docs.wpilib.org/en/stable/docs/software/dashboards/advantagescope.html </a></li>
-            <li><a href="https://github.com/Mechanical-Advantage/AdvantageScope">https://docs.wpilib.org/en/stable/docs/software/dashboards/advantagescope.html(documentation) </a></li>
-            <li><a href="https://www.chiefdelphi.com/t/advantagescope-2024-log-analysis-robot-telemetry-continued/442658 ">https://www.chiefdelphi.com/t/advantagescope-2024-log-analysis-robot-telemetry-continued/442658(chiefdelphi) </a></li>
+            <li><a href="https://docs.wpilib.org/en/stable/docs/software/dashboards/advantagescope.html">https://docs.wpilib.org/en/stable/docs/software/dashboards/advantagescope.html</a></li>
+            <li><a href="https://github.com/Mechanical-Advantage/AdvantageScope">https://github.com/Mechanical-Advantage/AdvantageScope</a></li>
+            <li><a href="https://www.chiefdelphi.com/t/advantagescope-2024-log-analysis-robot-telemetry-continued/442658">https://www.chiefdelphi.com/t/advantagescope-2024-log-analysis-robot-telemetry-continued/442658</a></li>
         </ul>
-        <p>Log different values(voltage, angle, torque etc.)
-        </p>
+        <p>Log different values (voltage, angle, torque, etc.)</p>
         <p>WPILIB icon in top right corner -> Start Tool -> Advantage Scope</p>
-        <p>Go to File -> Connect to Simulator </p>
-        <p>Drag measured values into the fields(left axis, discrete fields, right axis)
-        </p>
+        <p>Go to File -> Connect to Simulator</p>
+        <p>Drag measured values into the fields (left axis, discrete fields, right axis)</p>
         <ul class="outer-list">
             <p>There are other features besides line graphs as shown</p>
             <p>Make sure there are (incomplete)</p>
         </ul>
     </div>
+
+    <!-- JavaScript to toggle the sidebar -->
+    <script>
+        // Function to close the sidebar
+        function closeSidebar() {
+            const sidebar = document.querySelector('.sidebar');
+            sidebar.classList.add('closed');
+        }
+
+        // Function to open the sidebar
+        function openSidebar() {
+            const sidebar = document.querySelector('.sidebar');
+            sidebar.classList.remove('closed');
+        }
+    </script>
 </body>
-
-
 </html>
