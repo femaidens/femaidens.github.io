@@ -196,6 +196,13 @@
         <td>Significant delays when running at 20-30ms mode</td>
     </tr>
 </table>
+<p>Code Examples (from chief delphi)</p>
+<code>
+LaserCan lasercan = new LaserCan(0);<br>
+LaserCan.Measurement measurement = lasercan.getmeasurement();<br>
+</code>
+<code>if(measurement != null) <br></code>
+<code  style = "margin-left:30px">{ System.out.println("The target is " + measurement.distance_mm + "mm away!"); <br> }</code>
 
 <h2>Basic Researc on Time of Flight Sensor</h2>
 <p>(a.k.a The SEN-36005 a.k.a Proximity Switch a.k.a 2m Distance Sensor) 
