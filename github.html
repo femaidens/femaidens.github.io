@@ -75,7 +75,7 @@
             <li>Follow Step 2 from above.</li>
         </ol>
         <h2>Pushing Changes to Github</h2>
-        <textarea cols="75" rows="10" readonly>
+        <textarea cols="75" rows="5" readonly>
 git status
 git add -A // -A flag adds ALL modified files to staging area*
 git commit -m "[enter message here]"
@@ -144,8 +144,11 @@ git push origin <branch>
         <p>To edit an existing remote branch on your own local repository, first checkout to your desired branch then
             run the command <code>git pull</code>. For example, if the intake subsystem exists in the remote repository
             but not your local repository, you would run the following commands:
-            <br><code>git pull <br> git branch -a <comment>// see all existing branches in the remote repository</comment> <br> git checkout intake <comment>// checks out to the intake branch</comment>
-        </code>
+            <textarea cols="75" rows="5" readonly>
+git pull
+git branch -a // see all existing branches in the remote repository
+git checkout intake // checks out to the intake branch                  
+             </textarea>
         </p>
         <p>Why do we make a branch for each subsystem?</p>
         <ul class="outer-list">
