@@ -2,7 +2,6 @@
 <html lang = "en">
 <head>
     <link rel="stylesheet" type="text/css" href="css files/page-style.css">
-    <link rel="icon" type=""image/x-icon" href="Maiden.png"> 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -35,7 +34,205 @@
             <a href="simulations.html">Simulations</a>
             <a href="smartdashboard.html">SmartDashBoard</a>
         </div>
-    </div>
+
+        <h2>Ultrasonics</h2>
+        <p>Description: Ultrasonics <b> measure distance</b> from the closest object within their field of view using high frequency sound waves. We can code for them through arduino or connect them directly to the RIO. </p>
+        <p>Code: <br> Instantiation:<br></p>
+        <code>public static Ultrasonic ultra = new Ultrasonic(RobotMap.ultraPingChannel, RobotMap.ultraEchoChannel);</code>
+        <p>Commonly Used Methods:<br>**Refer to API for more comprehensive information**</p>
+
+        <table class = "center" style="width:400px">
+        <tr>
+           <th>Return Type</th>
+           <th>Method Call</th> 
+           <th>Description</th>
+        </tr>
+        <tr>
+            <td><code>double</code></td>
+            <td><code>getRangeInches()</code></td>
+            <td>Get the range in inches from the ultrasonic sensor.</td>
+        </tr>
+        <tr>
+            <td><code>double</code></td>
+            <td><code>getRangeMM()</code></td>
+            <td>Get the range in millimeters from the ultrasonic sensor.</td>
+        </tr>
+        <tr>
+            <td><code>static void</code></td>
+            <td><code>setAutomaticMode(boolean enabling)</code></td>
+            <td>Turn Automatic mode on/off for all sensors.</td>
+        </tr>
+        <tr>
+            <td><code>void</code></td>
+            <td><code>setEnabled(boolean enable)</code></td>
+            <td>Set if the ultrasonic is enabled</td>
+        </tr>
+    </table>
+
+    <h2>Encoders</h2>
+    <ul>
+        <li>Through Bore Encoder</li>
+        <li>Absolute Encoder</li>
+        <li>Relative Encoder</li>
+    </ul>
+    <p><u>Description:</u> Encoders measure motion (usually the rotation of a shaft, such as an axis of the drivetrain). In simpler terms encoders measure distance moved in ticks and rotations.
+    </p>
+    <p style =  "margin-left:60px"> <u>Relative Encoders:</u>detect changes in position relative to their starting positions. When they power off, they reset.
+    </p>
+    <p style =  "margin-left:60px"> <u>Absolute Encoders:</u>provide their position relative to a static point - even after a power loss or reboot. They have more complex outputs like analog or PWM.</p> 
+    <p style =  "margin-left:60px"> <u>Through Bore Encoder:</u></p>    
+    <p style =  "margin-left:60px"> <u>CanCoder:</u></p>  
+    <p><u>Code:</u></p>
+    <p>Instantiation:</p>
+    <code>//instantiating a motor <br>public static CANSparkMax frontRight = new CANSparkMax(RobotMap.frontRightPort, MotorType.kBrushless);
+    <br> // instantiating an encoder <br>
+    public static CANEncoder rightEncoder = frontRight.getEncoder(); 
+    </code>
+
+    <p>Commonly Used Methods: <br> **Refer to API for more comprehensive information</p>
+
+    <table class = "center" style = "width:400px">
+        <tr>
+            <th>Return Type</th>
+            <th>Method Call</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td><code>double</code></td>
+            <td><code>getPosition()</code></td>
+            <td>Get the position of the motor.</td>
+        </tr>
+        <tr>
+            <td><code>double</code></td>
+            <td><code>getVelocity()</code></td>
+            <td>Get the velocity of the motor.</td>
+        </tr>
+    </table>
+
+    <h2>Gyro</h2>
+    <p><u>Description:</u> Gyros measure degrees of rotations. This is important for commanding the robot to turn a specified degrees.</p>
+    <p><u>Code:</u></p>
+    <p>Instantiation:</p>
+    <code>public static AnalogGyro gyro = new AnalogGyro(RobotMap.gyroPort);</code>
+
+    <p>Commonly Used Methods:</p>
+    <p>**Refer to API for more comprehensive information**</p>
+
+    <table class = "center" style = "width:400px">
+        <tr>
+            <th>Return Type</th>
+            <th>Method Call</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td><code>double</code></td>
+            <td><code>getAngle()</code></td>
+            <td>Return the heading of the robot in degrees.</td>
+        </tr>
+        <tr>
+            <td><code>double</code></td>
+            <td><code>getOffset()</code></td>
+            <td>Return the gyro offset value set during calibration to use as a future preset.</td>
+        </tr>
+        <tr>
+            <td><code>void</code></td>
+            <td><code>initGyro()</code></td>
+            <td>Initialize the gyro.</td>
+        </tr>
+        <tr>
+            <td><code>void</code></td>
+            <td><code>reset()</code></td>
+            <td>Reset the gyro.</td>
+        </tr>
+    </table>
+
+    <h2>Limit Switch</h2>
+    <p><u>Description:</u>: Limit switches are sensors that tell us when an object is touching it. They send signals to the motor controller or the roboRio. We use limit switches in robotics primarily to prevent movement past a certain point (i.e. controlled movement of arms). A limit switch can be any type of switch that can reset itself when nothing is touching it. </p>
+    <p><u>Code:</u></p>
+    <p>Instantiation:</p>
+    <code>public DigitalInput switch = new DigitalInput(RobotMap.switchChannel);
+    </code>
+
+    <h2>Beam Breaks</h2>
+    <p><u>Description:</u> Each beam break is made up of an emitter and a receiver. The emitter shoots a laser beam to the receiver. This is the neutral state, which will return true. When the laser is broken <i>(hence the name ‘beam breaker’ wink wink hint hint Jacqueline),</i> it’ll return false since the receiver isn’t receiving a beam anymore.: </p>
+    <p><u>Code:</u></p>
+    <p>Instantiation:</p>
+    <code>public DigitalInput beamBreak = new DigitalInput(IntakePorts.BEAM_BREAK);
+    </code>
+
+    <p>Commonly Used Method: <br> **Refer to API for more comprehensive information**
+    </p>
+
+    <table class = "center" style = "width:400px">
+        <tr>
+            <th>Return Type</th>
+            <th>Method Call</th>
+            <th>Information</th>
+        </tr>
+        <tr>
+            <td><code>boolean</code></td>
+            <td><code>get()</code></td>
+            <td>Get the value from a digital input channel.</td>
+        </tr>
+    </table>
+
+    <h2>Basic Research on LaserCAN</h2>
+    <p>Links: <a href="https://www.chiefdelphi.com/t/announcing-the-lasercan-from-grapple-robotics/446442">Chief Delphi Announcement Thread</a></p>
+<table class = "center" style = "width:400px">
+    <tr>
+        <th>Pros</th>
+        <th>Cons</th>
+    </tr>
+    <tr>
+        <td>The LaserCAN can service any number of use cases:
+            <ul class = "outer-list">
+                <li>Detect the presence of game pieces in your intake,
+                </li>
+                <li>Determine the distance between your robot and the goal,</li>
+                <li>Detect other robots getting in your personal space,</li>
+                <li>Get an absolute measure of your elevator height without dealing with encoders,</li>
+            </ul>
+        </td>
+        <td>Significant delays when running at 20-30ms mode</td>
+    </tr>
+</table>
+<p>Code Examples (from chief delphi)</p>
+<code>
+LaserCan lasercan = new LaserCan(0);<br>
+LaserCan.Measurement measurement = lasercan.getmeasurement();<br>
+</code>
+<code>if(measurement != null) <br></code>
+<code  style = "margin-left:30px">{ System.out.println("The target is " + measurement.distance_mm + "mm away!"); <br> }</code>
+
+<h2>Basic Researc on Time of Flight Sensor</h2>
+<p>(a.k.a The SEN-36005 a.k.a Proximity Switch a.k.a 2m Distance Sensor) 
+<br>Links:<a href="https://www.playingwithfusion.com/include/getfile.php?fileid=7091&srsltid=AfmBOormCG_JBNdcI-ViZaRwek9XZeI36PLFlgqV-JpdWIRWEadAPrUl">User Manual</a></p> </p>
+
+<table class = "center" style = "width:400px">
+    <tr>
+        <th>Pros</th>
+        <th>Cons</th>
+    </tr>
+    <tr>
+        <td>They use a concentrated light source, such as a small laser, and measure the time between the emission of light and when the receiver detects it.
+        <ul class = "outer-list">
+            <li> This sensor can measure how long it takes for the light to bounce back, the “time of flight.” This results in much more accurate measurements that are independent of the target’s reflectance.</li>
+        </ul>
+        Using the speed of light, it can produce a very accurate distance measurement for a very small target area.
+        </td>
+        <td>Not commonly used in FRC so not a lot of references/documentations available (goodluck)</td>
+    </tr>
+</table>
+
+<h2>Gyro VS Accelerometer</h2>
+<table class = "center" style = "width:400px">
+    <tr>
+        <th>Gyro</th>
+        <th>Same</th>
+        <th>Accelerometer</th>
+    </tr>
+</table>
+</div>
 </body>
 
 
