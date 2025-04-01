@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <link rel="stylesheet" href="page-style.css">
+    <link rel="stylesheet" type="text/css" href="css files/page-style.css">
     <link rel="icon" type=""image/x-icon" href="Maiden.png"> 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -55,20 +55,22 @@
                 <ul style="list-style-type:circle;" class="inner-list">
                     <li>Below is a simple block of text. With indents, it’s much easier to navigate and figure out what
                         is what.</li>
-                    <li><code>public class Circle{</code><br>
-                        <code style="margin-left:30px;">private int radius;</code><br>
-                        <code style="margin-left:30px;">public Circle(){</code><br>
-                        <code style="margin-left:60px;">radius = 1;</code><br>
-                        <code style="margin-left:30px;">}</code><br>
-                        <code style="margin-left:30px;"> public Circle(double r){</code> <br>
-                        <code style="margin-left:60px;"> radius = r;</code><br>
-                        <code style="margin-left:30px;">}</code><br>
-                        <code style="margin-left:30px;">public double getDiameter(){</code><br>
-                        <code style="margin-left:60px;">return radius * 2;</code><br>
-                      <code style = "margin-left:30px;">} <br>}</code>
-                    </li>
                 </ul>
             </li>
+            <textarea cols="75" rows="10" readonly>
+public class Circle{
+    private int radius;
+    public Circle(){
+        radius = 1;
+}
+public Circle(double r){
+    radius = r;
+}
+public double getDiameter(){
+    return radius * 2;
+    }
+}
+            </textarea>
             <li>Constants should be in all capital letters w/ underscores separating words
                 <ul style="list-style-type:circle;" class="inner-list">
                     <li>private final int ARM_ANGLE = 45;</li>
@@ -77,18 +79,21 @@
             <li>If the method/command/whatever it may be asks for a lot of constants, put each one on a separate line,
                 otherwise scrolling is kinda annoying
             </li>
-            <code>config = new RobotConfig(
-                Constants.PathPlannerConstants.massKg,
-                Constants.PathPlannerConstants.MOI,
-                new ModuleConfig(
-                  DriveConstants.Translation.WHEEL_RADIUS,
-                  DriveConstants.Drivetrain.MAX_SPEED,
-                  DriveConstants.Drivetrain.WHEEL_COF,
-                  DCMotor.getKrakenX60(1),
-                  DriveConstants.Translation.CURRENT_LIMIT,
-                  1),
-                  DriveConstants.Drivetrain.TRACK_WIDTH);</code>
-                  <!-- WILL FORMAT ALL CODE BLOCKS LATER-->
+            <textarea cols="75" rows="15" readonly>
+// Below is a sample code of auton configuration from 2024-2025 Reefscape
+
+config = new RobotConfig(
+  	Constants.PathPlannerConstants.massKg,
+  	Constants.PathPlannerConstants.MOI,
+  	new ModuleConfig(
+    	DriveConstants.Translation.WHEEL_RADIUS,
+    	DriveConstants.Drivetrain.MAX_SPEED,
+    	DriveConstants.Drivetrain.WHEEL_COF,
+    	DCMotor.getKrakenX60(1),
+    	DriveConstants.Translation.CURRENT_LIMIT,
+    	1),
+    	DriveConstants.Drivetrain.TRACK_WIDTH);
+            </textarea>
         </ul>
         <h2>Organization</h2>
         <ul>
@@ -109,6 +114,15 @@
                     </ul>
                 </li>
             </ul>
+            <textarea cols="75" rows="10" readonly>
+/**
+* @param [ include parameters here ]
+* @returns [what it returns]
+*
+*/
+                
+// if you comment as such above, when you hover over the method that you put that comment block above, it will display really nicely. What I'm typing right now is a regular comment. You can use it for anything you want                
+                            </textarea>
             <li>Subsystem folder w/ subsystem files
                 <ul style="list-style-type:circle"; class="inner-list">
                     <li>Order goes:
@@ -166,7 +180,7 @@
                 </li>
         </ul>
     </div>
-
+    
 </body>
 
 </html>

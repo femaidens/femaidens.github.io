@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang = "en">
 <head>
-    <link rel="stylesheet" href="page-style.css">
+    <link rel="stylesheet" type="text/css" href="css files/page-style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -53,9 +53,31 @@
             </li>
             <li>Define the SysID Routines in the subsystem(one for driving and another for turning)
             </li>
+            <textarea cols="75" rows="5" readonly>
+private final SysIdRoutine driveRoutine = new SysIdRoutine(
+    new SysIdRoutine.Config(), new SysIdRoutine.Mechanism(
+        volts -> modules.forEach(m -> m.setDriveVoltage(volts.in(Units.Volts))),
+            null, this));
+                </textarea>
             <li>Then create the SysID commands in the subsystem for dynamic and quasistatic
             </li>
+            <textarea cols="75" rows="3" readonly>
+public Command driveQuasistatic(SysIdRoutine.Direction direction) {
+    return driveRoutine.quasistatic(direction);
+}                
+            </textarea>
             <li>Bind the command to a button(make sure to test reverse and forward)</li>
+            <textarea cols="75" rows="5" readonly>
+driveJoy.a()
+    .whileTrue(
+        drivetrain.driveQuasistatic(Direction.kForward)
+    );
+        
+driveJoy.b()
+    .whileTrue(
+        drivetrain.driveQuasistatic(Direction.kReverse)
+    );
+            </textarea>
             <li>Use the DataLogTool to retrieve the log file from the roboRIO</li>
         </ul>
         <p>Further instructions for obtaining log values and analyzing values can be found here: </p>

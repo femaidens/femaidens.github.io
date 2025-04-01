@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang = "en">
 <head>
-    <link rel="stylesheet" href="page-style.css">
+    <link rel="stylesheet" type="text/css" href="css files/page-style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -41,10 +41,29 @@
         <p><a href="https://github.com/femaidens/2025-Reefscape/blob/swerve-3-1/src/main/java/frc/robot/subsystems/Elevator.java">Referenced Code</a></p>
         <p>We use PID Controllers in our code to run PID loops for certain mechanisms. We first initialize the PID Controller in the code like this:
         </p>
+        <textarea cols="75" rows="10" readonly>
+    private static PIDController elevatorPID;
+    public Elevator() {
+        elevatorPID = new PIDController(
+        ElevatorConstants.PIDConstants.kP, //P, I, and D Constants that are tested for
+        ElevatorConstants.PIDConstants.kI,
+        ElevatorConstants.PIDConstants.kD
+    );
+}           
+        </textarea>
         <p>Then you would need to set the tolerance of the PID Controller(percentage of error, sets a range for the acceptable setpoint)
         </p>
+        <textarea cols="75" rows="1" readonly>
+elevatorPID.setTolerance(0.05);      
+                </textarea>
         <p>Set the Motor Voltage to the voltage outputted by the calculate() method for the PID Controller
         </p>
+        <textarea cols="75" rows="5" readonly>
+public void elevatorPID(double current, double setpoint){
+    elevatorMotorLeader.setVoltage(
+    elevatorPID.calculate(current, setpoint));
+}        
+        </textarea>
         <p>Set the method to a command, bind the command to a button, and you’re done!
         </p>
     </div>
