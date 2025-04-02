@@ -234,6 +234,19 @@ LaserCan.Measurement measurement = lasercan.getmeasurement();<br>
     </tr>
 </table>
 </div>
+<script>
+    // Function to close the sidebar
+    function closeSidebar() {
+        const sidebar = document.querySelector('.sidebar');
+        sidebar.classList.add('closed');
+    }
+
+    // Function to open the sidebar
+    function openSidebar() {
+        const sidebar = document.querySelector('.sidebar');
+        sidebar.classList.remove('closed');
+    }
+</script>
 </body>
 
 
