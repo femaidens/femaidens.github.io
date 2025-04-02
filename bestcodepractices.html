@@ -16,6 +16,7 @@
             <h2>Best Code Practices</h2>
         </header>
         <div class="sidebar">
+            <button class="closebtn" onclick="closeSidebar()">&times;</button>
             <a href="index.html">Introduction</a>
             <a href="todobuildseason.html">Start of Build Season Preparation</a>
             <a href="bestcodepractices.html">Best Code Practices</a>
@@ -37,6 +38,7 @@
             <a href="simulations.html">Simulations</a>
             <a href="smartdashboard.html">SmartDashBoard</a>
         </div>
+        <button class="openbtn" onclick="openSidebar()">&#9776;</button>
         <h2>Style/Comprehension</h2>
         <ul>
             <li>camelCase variables
@@ -178,20 +180,23 @@ config = new RobotConfig(
                 <ul style = "list-style-type:circle"; class = "inner-list"><li>This is easier to manage with consistent indentations </li></ul>
             <li>If you ever need to change the variable name for all instances, right click and rename symbol
                 </li>
+            <img id = "rename" src ="renameImg.png" alt = "How to rename in vscode" style="width:420px;height:400px;align-items: center;">
+            <p>    </p>
+            <img src ="syntaxImg.png" alt = "How to rename in vscode" style="width:300spx;height:100px;"> 
         </ul>
     </div>
     
     <script>
         // Function to close the sidebar
         function closeSidebar() {
-            document.getElementById("mySidebar").style.width = "0";
-            document.getElementById("main").style.marginLeft = "0";
+            const sidebar = document.querySelector('.sidebar');
+            sidebar.classList.add('closed');
         }
 
         // Function to open the sidebar
         function openSidebar() {
-            document.getElementById("mySidebar").style.width = "250px";
-            document.getElementById("main").style.marginLeft = "250px";
+            const sidebar = document.querySelector('.sidebar');
+            sidebar.classList.remove('closed');
         }
     </script>
 </body>
