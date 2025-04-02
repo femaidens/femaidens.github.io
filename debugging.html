@@ -13,6 +13,7 @@
             <h2>Debugging</h2>
         </header>
         <div class="sidebar">
+            <button class="closebtn" onclick="closeSidebar()">&times;</button>
             <a href="index.html">Introduction</a>
             <a href="todobuildseason.html">Start of Build Season Preparation</a>
             <a href="bestcodepractices.html">Best Code Practices</a>
@@ -34,6 +35,9 @@
             <a href="simulations.html">Simulations</a>
             <a href="smartdashboard.html">SmartDashBoard</a>
         </div>
+        
+        <button class="openbtn" onclick="openSidebar()">&#9776;</button>
+
         <h2>Debugging Tips</h2>
         <p>If you’re ever stuck on code and need some help debugging, look here for some tips from previous members:
         </p>
@@ -90,6 +94,19 @@
         <h2>BUGFINDER: <a href="https://docs.google.com/spreadsheets/d/1Z9QjqfpWwTYlXz7l3oV-93kr0vqc4pcPDLkk5__alPc/edit?gid=0#gid=0">A sheet with all our errors!</a></h2>
         <h2>**Add common or confusing errors for future notice</h2>
     </div>
+    <script>
+        // Function to close the sidebar
+        function closeSidebar() {
+            const sidebar = document.querySelector('.sidebar');
+            sidebar.classList.add('closed');
+        }
+
+        // Function to open the sidebar
+        function openSidebar() {
+            const sidebar = document.querySelector('.sidebar');
+            sidebar.classList.remove('closed');
+        }
+    </script>
 </body>
 
 

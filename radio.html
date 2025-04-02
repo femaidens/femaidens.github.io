@@ -13,6 +13,7 @@
             <h2>Radio Configuration</h2>
         </header>
         <div class="sidebar">
+            <button class="closebtn" onclick="closeSidebar()">&times;</button>
             <a href="index.html">Introduction</a>
             <a href="todobuildseason.html">Start of Build Season Preparation</a>
             <a href="bestcodepractices.html">Best Code Practices</a>
@@ -34,6 +35,8 @@
             <a href="simulations.html">Simulations</a>
             <a href="smartdashboard.html">SmartDashBoard</a>
         </div>
+        <button class="openbtn" onclick="openSidebar()">&#9776;</button>
+
         <p>Navigate to <a href="http://192.168.69.1/">http://192.168.69.1/</a></p>
         <p>IP for radio site: 10.22.65.4
         </p>
@@ -121,6 +124,19 @@
         </b></p>
         <img src="images/RobotStatusLights.png" alt="configure button bindings method" >
     </div>
+    <script>
+        // Function to close the sidebar
+        function closeSidebar() {
+            const sidebar = document.querySelector('.sidebar');
+            sidebar.classList.add('closed');
+        }
+
+        // Function to open the sidebar
+        function openSidebar() {
+            const sidebar = document.querySelector('.sidebar');
+            sidebar.classList.remove('closed');
+        }
+    </script>
 </body>
 
 

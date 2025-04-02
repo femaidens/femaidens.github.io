@@ -13,6 +13,7 @@
             <h2>Logging</h2>
         </header>
         <div class="sidebar">
+            <button class="closebtn" onclick="closeSidebar()">&times;</button>
             <a href="index.html">Introduction</a>
             <a href="todobuildseason.html">Start of Build Season Preparation</a>
             <a href="bestcodepractices.html">Best Code Practices</a>
@@ -34,6 +35,8 @@
             <a href="simulations.html">Simulations</a>
             <a href="smartdashboard.html">SmartDashBoard</a>
         </div>
+        <button class="openbtn" onclick="openSidebar()">&#9776;</button>
+
         <p><a href=" https://docs.wpilib.org/en/stable/docs/software/telemetry/datalog.html">Reference in Documentation</a></p>
         <ul class="outer-list">
             <li>To log data, we use the DataLogManager class</li>
@@ -60,6 +63,19 @@ public void robotInit() {
             <li>Select them > Download, delete after downloading if you want</li>
         </ul>
     </div>
+    <script>
+        // Function to close the sidebar
+        function closeSidebar() {
+            const sidebar = document.querySelector('.sidebar');
+            sidebar.classList.add('closed');
+        }
+
+        // Function to open the sidebar
+        function openSidebar() {
+            const sidebar = document.querySelector('.sidebar');
+            sidebar.classList.remove('closed');
+        }
+    </script>
 </body>
 
 

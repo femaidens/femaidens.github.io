@@ -13,6 +13,7 @@
             <h2>SmartDashBoard</h2>
         </header>
         <div class="sidebar">
+            <button class="closebtn" onclick="closeSidebar()">&times;</button>
             <a href="index.html">Introduction</a>
             <a href="todobuildseason.html">Start of Build Season Preparation</a>
             <a href="bestcodepractices.html">Best Code Practices</a>
@@ -34,6 +35,8 @@
             <a href="simulations.html">Simulations</a>
             <a href="smartdashboard.html">SmartDashBoard</a>
         </div>
+        <button class="openbtn" onclick="openSidebar()">&#9776;</button>
+
         <p>SmartDashboard displays robot data in real-time while the program is running in the form of graphs, text, dials, etc. 
         </p>
         <p>To display data, you call specific SmartDashboard methods in the periodic section of the subsystem that reference “getter” methods, which return numeric values, or boolean methods that return the status of a mechanism. Boolean and numeric values each have a specific method to write their data to the SmartDashboard, which is simply .putNumber() or .putBoolean. Each method takes a String message and a method that returns the value it will display as a parameter.</p>
@@ -47,6 +50,19 @@ public void periodic(){
 }                                  
         </textarea>
     </div>
+    <script>
+        // Function to close the sidebar
+        function closeSidebar() {
+            const sidebar = document.querySelector('.sidebar');
+            sidebar.classList.add('closed');
+        }
+
+        // Function to open the sidebar
+        function openSidebar() {
+            const sidebar = document.querySelector('.sidebar');
+            sidebar.classList.remove('closed');
+        }
+    </script>
 </body>
 
 

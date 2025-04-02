@@ -13,6 +13,7 @@
             <h2>Phoenix CTRE Tuner and REV Hardware Client</h2>
         </header>
         <div class="sidebar">
+            <button class="closebtn" onclick="closeSidebar()">&times;</button>
             <a href="index.html">Introduction</a>
             <a href="todobuildseason.html">Start of Build Season Preparation</a>
             <a href="bestcodepractices.html">Best Code Practices</a>
@@ -34,6 +35,8 @@
             <a href="simulations.html">Simulations</a>
             <a href="smartdashboard.html">SmartDashBoard</a>
         </div>
+        <button class="openbtn" onclick="openSidebar()">&#9776;</button>
+
         <h2>REV Hardware Client</h2>
         <p>The REV Hardware Client detects connected REV devices and makes it easier for the user to update them. </p>
         <p>We usually use the client to change the settings for SparkMaxes connected to motors. To use the REV Hardware Client, open the application and connect the REV Device through the orange wire(USB). 
@@ -58,6 +61,19 @@
         <p>Plotting: Play the Plot page for real-time logging and click the Reset Zoom button to clearly see where your logging is starting. 
         </p>
     </div>
+    <script>
+        // Function to close the sidebar
+        function closeSidebar() {
+            const sidebar = document.querySelector('.sidebar');
+            sidebar.classList.add('closed');
+        }
+
+        // Function to open the sidebar
+        function openSidebar() {
+            const sidebar = document.querySelector('.sidebar');
+            sidebar.classList.remove('closed');
+        }
+    </script>
 </body>
 
 

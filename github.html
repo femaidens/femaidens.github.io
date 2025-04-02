@@ -16,6 +16,7 @@
             <h2>Github Documentation</h2>
         </header>
         <div class="sidebar">
+            <button class="closebtn" onclick="closeSidebar()">&times;</button>
             <a href="index.html">Introduction</a>
             <a href="todobuildseason.html">Start of Build Season Preparation</a>
             <a href="bestcodepractices.html">Best Code Practices</a>
@@ -37,6 +38,9 @@
             <a href="simulations.html">Simulations</a>
             <a href="smartdashboard.html">SmartDashBoard</a>
         </div>
+
+        <button class="openbtn" onclick="openSidebar()">&#9776;</button>
+
 
         <a href="https://docs.github.com/en">https://docs.github.com/en</a>
         <h2>Configuring GitHub username and email (not required)</h2>
@@ -312,6 +316,19 @@
         <img src="images/SourceControl.png" alt="configure button bindings method" >
         <img src="images/CommitTree.png" alt="configure button bindings method" >
     </div>
+    <script>
+        // Function to close the sidebar
+        function closeSidebar() {
+            const sidebar = document.querySelector('.sidebar');
+            sidebar.classList.add('closed');
+        }
+
+        // Function to open the sidebar
+        function openSidebar() {
+            const sidebar = document.querySelector('.sidebar');
+            sidebar.classList.remove('closed');
+        }
+    </script>
 </body>
 
 </html>

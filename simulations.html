@@ -13,6 +13,7 @@
             <h2>Simulations</h2>
         </header>
         <div class="sidebar">
+            <button class="closebtn" onclick="closeSidebar()">&times;</button>
             <a href="index.html">Introduction</a>
             <a href="todobuildseason.html">Start of Build Season Preparation</a>
             <a href="bestcodepractices.html">Best Code Practices</a>
@@ -34,6 +35,8 @@
             <a href="simulations.html">Simulations</a>
             <a href="smartdashboard.html">SmartDashBoard</a>
         </div>
+        <button class="openbtn" onclick="openSidebar()">&#9776;</button>
+
         <ul class="outer-list">
             <li>We use simulations whenever we cannot test the physical robot and need to test simulated values</li>
             <li>We use AdvantageScope and the WPILIB provided “Simulate Code” function</li>
@@ -60,6 +63,19 @@
         <p>You can adjust the preferences by pressing the scroll bar icon next to the search bar and then typing in the values, so you will be able to change the PID values and arm position directly without having to relaunch the whole simulation.</p>
         <p>For Drivetrain Simulations on Advantage Scope make sure there is a method to record the 3d Pose/2d Pose</p>
     </div>
+    <script>
+        // Function to close the sidebar
+        function closeSidebar() {
+            const sidebar = document.querySelector('.sidebar');
+            sidebar.classList.add('closed');
+        }
+
+        // Function to open the sidebar
+        function openSidebar() {
+            const sidebar = document.querySelector('.sidebar');
+            sidebar.classList.remove('closed');
+        }
+    </script>
 </body>
 
 

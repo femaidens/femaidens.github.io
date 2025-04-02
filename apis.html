@@ -8,43 +8,77 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>APIs</title>
 </head>
-
-
 <body>
     <div class="main-content">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <button class="closebtn" onclick="closeSidebar()">&times;</button>
+            <a href="index.html">Introduction</a>
+            <a href="todobuildseason.html">Start of Build Season Preparation</a>
+            <a href="bestcodepractices.html">Best Code Practices</a>
+            <a href="visualstudiocode.html">Visual Studio Code</a>
+            <a href="github.html">GitHub</a>
+            <a href="debugging.html">Debugging</a>
+            <a href="apis.html">APIs</a>
+            <a href="driverstation.html">Driver Station</a>
+            <a href="limelightpipeline.html">Limelight & Pipeline</a>
+            <a href="sensors.html">Sensors</a>
+            <a href="radio.html">Radio Configuration</a>
+            <a href="photonvision.html">Photonvision</a>
+            <a href="rev.html">Phoenix CTRE Tuner and REV Hardware Client</a>
+            <a href="pid.html">PID</a>
+            <a href="sysid.html">SysID</a>
+            <a href="advantagescope.html">AdvantageScope</a>
+            <a href="pathplanner.html">Pathplanner</a>
+            <a href="logging.html">Logging</a>
+            <a href="simulations.html">Simulations</a>
+            <a href="smartdashboard.html">SmartDashBoard</a>
+        </div>
+
+        <!-- Open Sidebar Button -->
+        <button class="openbtn" onclick="openSidebar()">&#9776;</button>
+
+        <!-- Main Content -->
         <header><h2>APIs</h2></header>
-       <p>Application Programming Interface or APIs serve as documentation for the libraries we use. When in doubt of what methods to use or what parameters to put, check the API.
+        <p>Application Programming Interface or APIs serve as documentation for the libraries we use. When in doubt of what methods to use or what parameters to put, check the API.</p>
+        <p>Below are the links to the 2025 APIs. They typically update every year, so you will need to look for the new ones every year!</p>
+        
+        <p><b>PathPlanner API:</b> <br> 
+            <a href="https://pathplanner.dev/api/java/">https://pathplanner.dev/api/java/</a>
         </p>
-        <p>  Below are the links to the 2025 APIs. They typically update every year, so you will need to look for the new ones every year!</p>
-    <p><b>PathPlanner API:</b> <br> <a href = "https://pathplanner.dev/api/java/"> https://pathplanner.dev/api/java/</a></p>
-    <p><b>New Rev API:</b> <br> <a href = "https://codedocs.revrobotics.com/java/com/revrobotics/package-summary.html"> https://codedocs.revrobotics.com/java/com/revrobotics/package-summary.html</a></p>
-    <p><b>New WPILib API:</b><br> <a href = "https://github.wpilib.org/allwpilib/docs/release/java/index.html"> https://github.wpilib.org/allwpilib/docs/release/java/index.html </a></p>
-    <p><b>Limelight API:</b> <br> <a href = "https://docs.limelightvision.io/docs/docs-limelight/apis/complete-networktables-api"> https://docs.limelightvision.io/docs/docs-limelight/apis/complete-networktables-api</a></p>
-    <p><b>PhotonVision API:</b><br> <a href = "https://javadocs.photonvision.org/ "> https://javadocs.photonvision.org/</a></p>
-    <div class="sidebar">
-        <a href="index.html">Introduction</a>
-        <a href="todobuildseason.html">Start of Build Season Preparation</a>
-        <a href="bestcodepractices.html">Best Code Practices</a>
-        <a href="visualstudiocode.html">Visual Studio Code</a>
-        <a href="github.html">GitHub</a>
-        <a href="debugging.html">Debugging</a>
-        <a href="apis.html">APIs</a>
-        <a href="driverstation.html">Driver Station</a>
-        <a href="limelightpipeline.html">Limelight & Pipeline</a>
-        <a href="sensors.html">Sensors</a>
-        <a href="radio.html">Radio Configuration</a>
-        <a href="photonvision.html">Photonvision</a>
-        <a href="rev.html">Phoenix CTRE Tuner and REV Hardware Client</a>
-        <a href="pid.html">PID</a>
-        <a href="sysid.html">SysID</a>
-        <a href="advantagescope.html">AdvantageScope</a>
-        <a href="pathplanner.html">Pathplanner</a>
-        <a href="logging.html">Logging</a>
-        <a href="simulations.html">Simulations</a>
-        <a href="smartdashboard.html">SmartDashBoard</a>
+        <p><b>New Rev API:</b> <br> 
+            <a href="https://codedocs.revrobotics.com/java/com/revrobotics/package-summary.html">
+                https://codedocs.revrobotics.com/java/com/revrobotics/package-summary.html
+            </a>
+        </p>
+        <p><b>New WPILib API:</b><br> 
+            <a href="https://github.wpilib.org/allwpilib/docs/release/java/index.html">
+                https://github.wpilib.org/allwpilib/docs/release/java/index.html
+            </a>
+        </p>
+        <p><b>Limelight API:</b> <br> 
+            <a href="https://docs.limelightvision.io/docs/docs-limelight/apis/complete-networktables-api">
+                https://docs.limelightvision.io/docs/docs-limelight/apis/complete-networktables-api
+            </a>
+        </p>
+        <p><b>PhotonVision API:</b><br> 
+            <a href="https://javadocs.photonvision.org/">https://javadocs.photonvision.org/</a>
+        </p>
     </div>
-</div>
+
+    <!-- JavaScript to toggle the sidebar -->
+    <script>
+        // Function to close the sidebar
+        function closeSidebar() {
+            const sidebar = document.querySelector('.sidebar');
+            sidebar.classList.add('closed');
+        }
+
+        // Function to open the sidebar
+        function openSidebar() {
+            const sidebar = document.querySelector('.sidebar');
+            sidebar.classList.remove('closed');
+        }
+    </script>
 </body>
-
-
 </html>
