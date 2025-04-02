@@ -70,6 +70,7 @@
             <li>Click Generate Project.
             </li>
         </ol>
+        <img src="images/WPILIBNewProjectCreator.png" alt="new project creator" >
         <h2>Connecting the project to the repository:</h2>
         <ol type="1" class = "outer-list">
             <li>Make sure the repository exists on Github.com under the FeMaidens organization.
@@ -181,6 +182,11 @@ git push -u origin main // pushes changes to github while creating a tracking br
                 <ul class = "inner-list">
                     <li>In our Drivetrain subsystem, we typically set the DriveTeleop() command as the default command because we want it to run when called. 
                     </li>
+                    <textarea cols="75" rows="3" readonly>
+public void initDefaultCommand() {
+    setDefaultCommand(new DriveTeleop());
+}
+                        </textarea>
                 </ul>
             </ul>
         </ul>
@@ -289,6 +295,7 @@ driveJoy.leftTrigger()
 public static CANSparkMax rearRight = new CANSparkMax(Ports.REAR_RIGHT_DRIVE, MotorType.kBrushless);
                 </textarea>
         </ul>
+        <img src="images/PortsClass.png" alt="ports class" >        
         <h2>Robot.java:
         </h2>
         <ul class = "outer-list">
@@ -332,6 +339,8 @@ public static CANSparkMax rearRight = new CANSparkMax(Ports.REAR_RIGHT_DRIVE, Mo
             <li>In the parenthesis of the method, write new and the command you want to bind the button to.
             </li>
         </ul>
+        <img src="images/configureButtonBindingsDiagram.png" alt="configure button bindings diagram" >
+        <img src="images/configureButtonBindingsMethod.png" alt="configure button bindings method" >
         <p><b>Notes: Organize your buttons based on its function(drive buttons, climb buttons, etc) and leave comments on what it does
         </b></p>
         <p>The RobotContainer class also allows you to configure the auton in the configureAuton() method
