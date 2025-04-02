@@ -66,6 +66,7 @@
             <li>Connect laptop to radio through wifi network (ex: 2265_Kermit). The laptop needs to be connected to the radio in order to connect to the limelight.</li>
             <li>Go to website: limelight.local:5801            </li>
         </ul>
+        <img src="images/SettingUpLimelight.png" alt="configure button bindings method" >
         <h2>Aligning the Limelight</h2>
         <ul class="outer-list">
             <li>Goal: The red box should align with the edges of the retroreflective tape and the blue box should align to match the tape as well (example and extra tips further down).
@@ -76,15 +77,21 @@
             </li>
         </ul>
         <ol type="1" class="outer-list">
-            <li>Input → Change Exposure first → Move onto editing Black Level Offset, Red Balance, and Blue Balance
+            <li>Input → Change Exposure first → Move onto editing Black Level Offset, Red Balance, and Blue Balance(the lower the red balance, the less red there is, the lower the blue balance, the less blue there is)
             </li>
+            <img src="images/Limelight1.png" alt="configure button bindings method" >
             <li>Thresholding → Eyedropper on one corner of retroreflective tape → Include Pixel on one of the other corners/edges</li>
-            <li>Play around with the values under Thresholding (start from big to small)
+            <li>Play around with the values under Thresholding (start from big to small): Make sure Thresholding bars don't get too small
             </li>
+            <img src="images/Limelight2.png" alt="configure button bindings method" >
+            <li>Contour Filtering: Play around with W/H Ratio (yellow rect) and Smart Speckle Rejection</li>
+            <img src="images/Limelight3.png" alt="configure button bindings method" >
             <li>Keep messing with the Input and Thresholding values until all of the outlines are steady.
             </li>
             <li>As a final check, move the camera and board around to check that the outlines are stable. The blue box should be stable no matter how the target or limelight moves.
             </li>
+            <li>It should look something like this: </li>
+            <img src="images/Limelight4.png" alt="configure button bindings method" >
         </ol>
         <h2>Tips</h2>
         <ul class="outer-list">
