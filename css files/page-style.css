@@ -87,12 +87,12 @@ header {
 }
 .inner-list{
     margin-left: 60px;
-    color:#c800ff;
+    color:#000000;
     line-height: 1.6;
 }
 .outer-list{
     margin-left: 40px;
-    color:#1c0658;
+    color:#000000;
 }
 .li{
     line-height: 1.6;
@@ -115,6 +115,14 @@ notice{
     font-size: 16px;
     line-height: 1.6;
     color: #f50e0e;
+}
+table, th, td{
+border:1px solid black;
+}
+
+table.center{
+    margin-left:auto;
+    margin-right: auto;
 }
 /* Footer styling */
 footer {

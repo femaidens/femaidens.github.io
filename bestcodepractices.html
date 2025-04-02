@@ -2,8 +2,8 @@
 <html lang="en">
 
 <head>
-    <link rel="stylesheet" href="page-style.css">
-    <link rel="icon" type="image/x-icon" href="Maiden.png">
+    <link rel="stylesheet" type="text/css" href="css files/page-style.css">
+    <link rel="icon" type=""image/x-icon" href="Maiden.png"> 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -11,90 +11,176 @@
 </head>
 
 <body>
-    <div id="mySidebar" class="sidebar">
-        <button class="closebtn" onclick="closeSidebar()">&times;</button>
-        <a href="index.html">Introduction</a>
-        <a href="todobuildseason.html">Start of Build Season Preparation</a>
-        <a href="bestcodepractices.html">Best Code Practices</a>
-        <a href="visualstudiocode.html">Visual Studio Code</a>
-        <a href="github.html">GitHub</a>
-        <a href="debugging.html">Debugging</a>
-        <a href="apis.html">APIs</a>
-        <a href="driverstation.html">Driver Station</a>
-        <a href="limelightpipeline.html">Limelight & Pipeline</a>
-        <a href="sensors.html">Sensors</a>
-        <a href="radio.html">Radio Configuration</a>
-        <a href="photonvision.html">Photonvision</a>
-        <a href="rev.html">Phoenix CTRE Tuner and REV Hardware Client</a>
-        <a href="pid.html">PID</a>
-        <a href="sysid.html">SysID</a>
-        <a href="advantagescope.html">AdvantageScope</a>
-        <a href="pathplanner.html">Pathplanner</a>
-        <a href="logging.html">Logging</a>
-        <a href="simulations.html">Simulations</a>
-        <a href="smartdashboard.html">SmartDashBoard</a>
-    </div>
-
-    <div id="main">
-        <button class="openbtn" onclick="openSidebar()">&#9776;</button>
-        <div class="content-container">
-            <header>
-                <h2>Best Code Practices</h2>
-            </header>
-
-            <h2>Style/Comprehension</h2>
-            <ul>
-                <li>camelCase variables
-                    <ul class="inner-list">
-                        <li>Local variables that stay in their classes/subsystems</li>
-                        <li>int leftArmMotorPort = 2;</li>
-                    </ul>
-                </li>
-                <li>Name with logic
-                    <ul class="inner-list">
-                        <li>Make it quick and short</li>
-                        <li>Easy to remember/refer to</li>
-                    </ul>
-                </li>
-                <li>Be consistent with your indenting!
-                    <ul class="inner-list">
-                        <li>Below is a simple block of text. With indents, it’s much easier to navigate and figure out what is what.</li>
-                        <li><code>public class Circle{</code><br>
-                            <code style="margin-left:30px;">private int radius;</code><br>
-                            <code style="margin-left:30px;">public Circle(){</code><br>
-                            <code style="margin-left:60px;">radius = 1;</code><br>
-                            <code style="margin-left:30px;">}</code><br>
-                            <code style="margin-left:30px;"> public Circle(double r){</code> <br>
-                            <code style="margin-left:60px;"> radius = r;</code><br>
-                            <code style="margin-left:30px;">}</code><br>
-                            <code style="margin-left:30px;">public double getDiameter(){</code><br>
-                            <code style="margin-left:60px;">return radius * 2;</code><br>
-                          <code style="margin-left:30px;">} <br>}</code>
-                        </li>
-                    </ul>
-                </li>
-                <li>Constants should be in all capital letters w/ underscores separating words
-                    <ul class="inner-list">
-                        <li>private final int ARM_ANGLE = 45;</li>
-                    </ul>
-                </li>
-                <li>If the method/command/whatever it may be asks for a lot of constants, put each one on a separate line, otherwise scrolling is kinda annoying
-                </li>
-                <code>config = new RobotConfig(
-                    Constants.PathPlannerConstants.massKg,
-                    Constants.PathPlannerConstants.MOI,
-                    new ModuleConfig(
-                      DriveConstants.Translation.WHEEL_RADIUS,
-                      DriveConstants.Drivetrain.MAX_SPEED,
-                      DriveConstants.Drivetrain.WHEEL_COF,
-                      DCMotor.getKrakenX60(1),
-                      DriveConstants.Translation.CURRENT_LIMIT,
-                      1),
-                      DriveConstants.Drivetrain.TRACK_WIDTH);</code>
-            </ul>
+    <div class="main-content">
+        <header>
+            <h2>Best Code Practices</h2>
+        </header>
+        <div class="sidebar">
+            <a href="index.html">Introduction</a>
+            <a href="todobuildseason.html">Start of Build Season Preparation</a>
+            <a href="bestcodepractices.html">Best Code Practices</a>
+            <a href="visualstudiocode.html">Visual Studio Code</a>
+            <a href="github.html">GitHub</a>
+            <a href="debugging.html">Debugging</a>
+            <a href="apis.html">APIs</a>
+            <a href="driverstation.html">Driver Station</a>
+            <a href="limelightpipeline.html">Limelight & Pipeline</a>
+            <a href="sensors.html">Sensors</a>
+            <a href="radio.html">Radio Configuration</a>
+            <a href="photonvision.html">Photonvision</a>
+            <a href="rev.html">Phoenix CTRE Tuner and REV Hardware Client</a>
+            <a href="pid.html">PID</a>
+            <a href="sysid.html">SysID</a>
+            <a href="advantagescope.html">AdvantageScope</a>
+            <a href="pathplanner.html">Pathplanner</a>
+            <a href="logging.html">Logging</a>
+            <a href="simulations.html">Simulations</a>
+            <a href="smartdashboard.html">SmartDashBoard</a>
         </div>
-    </div>
+        <h2>Style/Comprehension</h2>
+        <ul>
+            <li>camelCase variables
+                <ul style="list-style-type:circle;" class="inner-list">
+                    <li>Local variables that stay in their classes/subsystems</li>
+                    <li>int leftArmMotorPort = 2;</li>
+                </ul>
+            </li>
+            <li>Name with logic
+                <ul style="list-style-type:circle;" class="inner-list">
+                    <li>Make it quick and short</li>
+                    <li>Easy to remember/refer to</li>
+                </ul>
+            </li>
+            <li>Be consistent with your indenting!
+                <ul style="list-style-type:circle;" class="inner-list">
+                    <li>Below is a simple block of text. With indents, it’s much easier to navigate and figure out what
+                        is what.</li>
+                </ul>
+            </li>
+            <textarea cols="75" rows="10" readonly>
+public class Circle{
+    private int radius;
+    public Circle(){
+        radius = 1;
+}
+public Circle(double r){
+    radius = r;
+}
+public double getDiameter(){
+    return radius * 2;
+    }
+}
+            </textarea>
+            <li>Constants should be in all capital letters w/ underscores separating words
+                <ul style="list-style-type:circle;" class="inner-list">
+                    <li>private final int ARM_ANGLE = 45;</li>
+                </ul>
+            </li>
+            <li>If the method/command/whatever it may be asks for a lot of constants, put each one on a separate line,
+                otherwise scrolling is kinda annoying
+            </li>
+            <textarea cols="75" rows="15" readonly>
+// Below is a sample code of auton configuration from 2024-2025 Reefscape
 
+config = new RobotConfig(
+  	Constants.PathPlannerConstants.massKg,
+  	Constants.PathPlannerConstants.MOI,
+  	new ModuleConfig(
+    	DriveConstants.Translation.WHEEL_RADIUS,
+    	DriveConstants.Drivetrain.MAX_SPEED,
+    	DriveConstants.Drivetrain.WHEEL_COF,
+    	DCMotor.getKrakenX60(1),
+    	DriveConstants.Translation.CURRENT_LIMIT,
+    	1),
+    	DriveConstants.Drivetrain.TRACK_WIDTH);
+            </textarea>
+        </ul>
+        <h2>Organization</h2>
+        <ul>
+            <li>Comment.  COMMENT.  C O M M E N T</li>
+            <ul style="list-style-type:circle;" class="inner-list"> 
+                <li>They are ignored by the code and are specifically so you can kind of ‘take notes’ on your code.
+                </li>
+                <li>It’s good for figuring out what code is for what. You can comment out previous tuning values as well, it’s a quick way to make things more readable/understandable
+                </li>
+                <li>You could also debug with comments if worst comes to worst…</li>
+            </ul>
+            <li>Commit messages</li>
+            <ul style="list-style-type:circle" class="inner-list"> 
+                <li>Write concise commit messages that summarizes what you did
+                    <ul>
+                        <li style="margin-left:60px;"><notice>In the case scenario a certain somebody from a certain team decides to come in and merge your branches and resolve your merge conflicts WITHOUT YOU, you know exactly WHICH COMMIT MESSAGE that YOU need to RECOVER your CODE BACK TO. 
+                        </notice></li>
+                    </ul>
+                </li>
+            </ul>
+            <textarea cols="75" rows="10" readonly>
+/**
+* @param [ include parameters here ]
+* @returns [what it returns]
+*
+*/
+                
+// if you comment as such above, when you hover over the method that you put that comment block above, it will display really nicely. What I'm typing right now is a regular comment. You can use it for anything you want                
+                            </textarea>
+            <li>Subsystem folder w/ subsystem files
+                <ul style="list-style-type:circle"; class="inner-list">
+                    <li>Order goes:
+                        <li style = "margin-left:60px">Imports</li>
+                        <li style = "margin-left:60px">Fields
+                            <li style = "margin-left:90px"> Declare the objects</li>
+                        </li>
+                        <li style="margin-left:60px"> Constructor
+                            <li style="margin-left:90px"> Instantiate the objects</li>
+                            <li style="margin-left:90px"> Configure here</li>
+                        </li>
+                        <li style = "margin-left:60px"> Methods
+                            <li style = "margin-left:90px"> Make them commands, it's much easier.</li>
+                        </li>
+                        <li style = "margin-left:60px"> Periodic/All Override stuff</li> 
+                    </li>
+                </ul>
+            </li>
+            <li>Commands folder w/command files
+                <ul style = "list-style-type:circle"; class = "inner-list">
+                    <li>Import the subsystems</li>
+                    <li>Here you can create commands that involve commands/methods from other subsystems.
+                        <li style = "margin-left:60px"> Example: Previously, Reefscape coral transition needed methods from Intake and Outtake to run the flywheels, so we had a file called CoralTransition.java which took commands from both into a sequential command group</li>
+                    </li>
+                </ul>
+            </li>
+            <li>Binding Buttons goes into RobotContainer.java</li>
+            <li>Ports file is for motor ports or anything wired to a specific port
+            </li>
+            <li>Constants file is for numbers that won’t change/will be used often.
+                <ul style = "list-style-type:circle"; class = "inner-list">
+                    Example: PID constants
+                </ul>
+            </li>
+            <li>Autonomous files should be in Commands folder
+                <ul style = "list-style-type:circle"; class = "inner-list">
+                    <li>Unless you’re doing timed autos (please no). They should have their own folder.</li>
+                </ul>
+            </li>
+        </ul>
+        <h2>Syntax</h2>
+        <ul>
+            <li>Make all variables private
+                <ul style = "list-style-type:circle"; class = "inner-list">
+                    <li>private CANSparkMax rightArm;</li>
+                </ul>
+            </li>
+            <li>Make all methods public</li>
+            <li>Avoid using static unless fully necessary</li>
+            <li>Do not name fields/methods with keywords
+                <ul style = "list-style-type:circle"; class = "inner-list"><li>Ex. public, new, static, private, etc.</li></ul>
+            <li>Watch your parentheses/curly brackets</li>
+                <ul style = "list-style-type:circle"; class = "inner-list"><li>This is easier to manage with consistent indentations </li></ul>
+            <li>If you ever need to change the variable name for all instances, right click and rename symbol
+                </li>
+        </ul>
+    </div>
+    
     <script>
         // Function to close the sidebar
         function closeSidebar() {

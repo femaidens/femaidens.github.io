@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang = "en">
 <head>
-    <link rel="stylesheet" href="page-style.css">
+    <link rel="stylesheet" type="text/css" href="css files/page-style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -67,19 +67,148 @@
                 <li><code>getRobotRelativeSpeeds</code> or <code>getCurrentSpeeds</code> = Returns the current robot-relative <code>ChassisSpeeds</code>. This can be calculated using one of WPILIB's drive kinematics classes</li>
                 <li><code>driveRobotRelative</code> or <code>drive</code> - Outputs commands to the robot's drive motors given robot-relative <code>ChassisSpeeds</code>. This can be converted to module states or wheel speeds using WPILIB's drive kinematics classes</li>
             </ul>
+            <textarea cols="75" rows="25" readonly>
+public class DriveSubsystem extends SubsystemBase {
+    public DriveSubsystem() {
+        // All other subsystem initialization
+        // ...
+                  
+        // Configure AutoBuilder last
+        AutoBuilder.configureHolonomic(
+            this::getPose, // Robot pose supplier
+            this::resetPose, // Method to reset odometry (will be called if your auto has a starting pose)
+            this::getRobotRelativeSpeeds, // ChassisSpeeds supplier. MUST BE ROBOT RELATIVE
+            this::driveRobotRelative, // Method that will drive the robot given ROBOT RELATIVE ChassisSpeeds
+            new HolonomicPathFollowerConfig( // HolonomicPathFollowerConfig, this should likely live in your Constants class
+                new PIDConstants(5.0, 0.0, 0.0), // Translation PID constants
+                new PIDConstants(5.0, 0.0, 0.0), // Rotation PID constants
+                4.5, // Max module speed, in m/s
+                0.4, // Drive base radius in meters. Distance from robot center to furthest module.
+                new ReplanningConfig() // Default path replanning config. See the API for the options here
+            ),
+            () -> {
+            // Boolean supplier that controls when the path will be mirrored for the red alliance
+            / This will flip the path being followed to the red side of the field.
+            // THE ORIGIN WILL REMAIN ON THE BLUE SIDE
+                  
+            var alliance = DriverStation.getAlliance();
+            if (alliance.isPresent()) {
+                return alliance.get() == DriverStation.Alliance.Red;
+            }
+            return false;
+            },
+            this // Reference to this subsystem to set requirements
+        );
+    }
+}                           
+                </textarea>
             <p>(this is taken from the pathplanner docs but adjust based on code)</p>
             <li>Load the auto from the pathplanner in the Robot Container
             </li>
+            <textarea cols="75" rows="10" readonly>
+public class RobotContainer {
+    // ...
+                  
+    public Command getAutonomousCommand() {
+        return new PathPlannerAuto("Example Auto"); // "Example Auto" is the name of the auton path
+    }
+}                  
+                                </textarea>
             <li>Create a Sendable Chooser with either all autos or some autos in the project</li>
+            <textarea cols="75" rows="10" readonly>
+public class RobotContainer { //all autos
+    private final SendableChooser<Command> autoChooser;
+                  
+    public RobotContainer() {
+    // ...
+                  
+    // Build an auto chooser. This will use Commands.none() as the default option.
+    autoChooser = AutoBuilder.buildAutoChooser();
+                  
+    // Another option that allows you to specify the default auto by its name
+    // autoChooser = AutoBuilder.buildAutoChooser("My Default Auto");
+                  
+    SmartDashboard.putData("Auto Chooser", autoChooser);
+    }
+                  
+    public Command getAutonomousCommand() {
+        return autoChooser.getSelected();
+    }
+}      
+            </textarea>
+            <textarea cols="75" rows="25" readonly>
+public class RobotContainer {
+    private final SendableChooser<Command> autoChooser;
+                  
+    public RobotContainer() {
+// ...
+                  
+// For convenience a programmer could change this when going to competition.
+    boolean isCompetition = true;
+                  
+// Build an auto chooser. This will use Commands.none() as the default option.
+// As an example, this will only show autos that start with "comp" while at
+// competition as defined by the programmer
+    autoChooser = AutoBuilder.buildAutoChooserWithOptionsModifier(
+    (stream) -> isCompetition
+        ? stream.filter(auto -> auto.getName().startsWith("comp"))
+        : stream
+    );
+                  
+        SmartDashboard.putData("Auto Chooser", autoChooser);
+    }
+                  
+    public Command getAutonomousCommand() {
+        return autoChooser.getSelected();
+    }
+}                  
+                            </textarea>
             <li>Register named commands from subsystems so that they can be implemented into the Pathplanner paths through the application(for example autoBalance, shoot during auton etc.)
             </li>
             <p>There should be a place to put specific commands according to specific waypoints
             </p>
+            <textarea cols="75" rows="15" readonly>
+public class RobotContainer() {
+    public RobotContainer() {
+        // Subsystem initialization
+        swerve = new Swerve();
+        exampleSubsystem = new ExampleSubsystem();
+                
+        // Register Named Commands
+        NamedCommands.registerCommand("autoBalance", swerve.autoBalanceCommand());
+        NamedCommands.registerCommand("exampleCommand", exampleSubsystem.exampleCommand());
+        NamedCommands.registerCommand("someOtherCommand", new SomeOtherCommand());
+                
+        // Do all other initialization
+        configureButtonBindings();
+                
+        // ...
+    }
+}                
+                </textarea>
             <li>Create a command for the auto builder to follow the path
             </li>
+            <textarea cols="75" rows="15" readonly>
+public class RobotContainer {
+    public Command getAutonomousCommand() {
+        // Load the path you want to follow using its name in the GUI
+        PathPlannerPath path = PathPlannerPath.fromPathFile("Example Path");
+                  
+        // Create a path following command using AutoBuilder. This will also trigger event markers.
+        return AutoBuilder.followPath(path);
+    }
+}                            
+                </textarea>
         </ol>
         <h2>Option to implement path groups:
         </h2>
+        <textarea cols="75" rows="9" readonly>
+// Use the PathPlannerAuto class to get a path group from an auto
+List<PathPlannerPath> pathGroup = PathPlannerAuto.getPathGroupFromAutoFile("Example Auto");
+            
+// You can also get the starting pose from the auto. Only call this if the auto actually has a starting pose.
+Pose2d startingPose = PathPlannerAuto.getStartingPoseFromAutoFile("Example Auto");                                       
+            </textarea>
     </div>
     <script>
         // Function to close the sidebar

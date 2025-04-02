@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang = "en">
 <head>
-    <link rel="stylesheet" href="page-style.css">
+    <link rel="stylesheet" type="text/css" href="css files/page-style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -40,6 +40,15 @@
         <p>SmartDashboard displays robot data in real-time while the program is running in the form of graphs, text, dials, etc. 
         </p>
         <p>To display data, you call specific SmartDashboard methods in the periodic section of the subsystem that reference “getter” methods, which return numeric values, or boolean methods that return the status of a mechanism. Boolean and numeric values each have a specific method to write their data to the SmartDashboard, which is simply .putNumber() or .putBoolean. Each method takes a String message and a method that returns the value it will display as a parameter.</p>
+        <textarea cols="75" rows="9" readonly>
+//A periodic method that sends data looks like
+public void periodic(){
+    //Displays the position of the motor (in units of rotations
+    SmartDashboard.putNumber(“encoder”, genericEncoder.getPosition);
+    //Boolean value (T or F) whether a certain limit has been reached
+    SmartDashboard.putBoolean(“Bottom Limit Switch”, hitBotLimit()); 
+}                                  
+        </textarea>
     </div>
     <script>
         // Function to close the sidebar
